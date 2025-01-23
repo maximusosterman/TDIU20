@@ -15,7 +15,6 @@ Time::Time(std::string const& time_string)
       second    {std::stoi(time_string.substr(6, 2))} {
 
         check_valid_clock_range(hour, minute, second);
-
     }
 
 
