@@ -7,12 +7,16 @@ Time::Time() : hour {}, minute {}, second {} {};
 Time::Time(int hour, int minute, int second) 
     : hour {hour}, minute {minute}, second {second} {
         check_valid_clock_range(hour, minute, second);
-    };
+    }
 
-// Time::Time(std::string const& time_string) {
-    
+Time::Time(std::string const& time_string)
+    : hour      {std::stoi(time_string.substr(0, 2))},  
+      minute    {std::stoi(time_string.substr(3, 2))},
+      second    {std::stoi(time_string.substr(6, 2))} {
 
-// }
+        check_valid_clock_range(hour, minute, second);
+
+    }
 
 
 int Time::get_hour() const {
