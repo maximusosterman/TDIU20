@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "Time.h"
+#include "time.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ TEST_CASE ("Constructors and getters")
       CHECK( empty.get_minute() == 0 );
       CHECK( empty.get_second() == 0 );
    }
-/* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
+// /* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
 
    SECTION("Integer")
    {
@@ -34,7 +34,7 @@ TEST_CASE ("Constructors and getters")
       CHECK( t2.get_minute() == 59 );
       CHECK( t2.get_second() == 59 );
    }
-*/
+
 /* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
 
    SECTION("String")
