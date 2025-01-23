@@ -17,7 +17,6 @@ Time::Time(std::string const& time_string)
         check_valid_clock_range(hour, minute, second);
     }
 
-
 int Time::get_hour() const {
     return hour;
 }
@@ -34,4 +33,8 @@ void Time::check_valid_clock_range(int hour, int minute, int second) {
     if (second > 59) throw std::logic_error("Second out of range!");
     if (minute > 59) throw std::logic_error("Minutes out of range!");
     if (hour > 23) throw std::logic_error("Hours out of range!");
+}
+
+bool Time::is_am() {
+    return hour < 12;
 }

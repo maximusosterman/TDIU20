@@ -12,6 +12,8 @@ public:
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
+    
+    bool is_am();
 
 private:
     int hour;
@@ -19,6 +21,7 @@ private:
     int second;
 
     void check_valid_clock_range(int hour, int minute, int second);
+
 };
 
 #endif

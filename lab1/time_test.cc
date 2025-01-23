@@ -59,16 +59,16 @@ TEST_CASE ("Constructors and getters")
    }
 
 }
-/* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
+// /* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
 TEST_CASE ("is_am") 
 {
    Time t0{"05:00:00"};
    Time t1{"14:00:00"};
    CHECK       ( t0.is_am() );
    CHECK_FALSE ( t1.is_am() );
-   // Fill with extra corner cases!
+
 }
-*/
+
 /* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
 
 TEST_CASE ("to_string")
