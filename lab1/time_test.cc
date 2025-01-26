@@ -69,7 +69,7 @@ TEST_CASE ("is_am")
 
 }
 
-/* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
+// /* ----- REMOVE THIS COMMENT WHEN PREVIOUS TEST PASSES -----
 
 TEST_CASE ("to_string")
 {
@@ -81,7 +81,10 @@ TEST_CASE ("to_string")
    SECTION("24 hour format no argument")
    {
       CHECK( t0.to_string() == "00:00:00" );
-      // Fill with more tests!
+      CHECK( t1.to_string() == "11:59:59" );
+      CHECK( t2.to_string() == "12:00:00" );
+      CHECK( t3.to_string() == "13:00:00" );
+      CHECK( t4.to_string() == "23:59:59" );
    }
    
    SECTION("24 hour format with argument")
@@ -97,4 +100,3 @@ TEST_CASE ("to_string")
 
 // Fill with more tests of other functions and operators!
 
-*/

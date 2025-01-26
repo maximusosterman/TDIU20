@@ -14,6 +14,8 @@ public:
     int get_second() const;
     
     bool is_am();
+    std::string to_string() const&;
+
 
 private:
     int hour;
