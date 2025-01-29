@@ -2,8 +2,6 @@
 #include <stdexcept>
 #include <string>  
 
-Time::Time() : hour {}, minute {}, second {} {}; 
-
 Time::Time(int hour, int minute, int second) 
     : hour {hour}, minute {minute}, second {second} {
         check_valid_clock_range(hour, minute, second);
@@ -84,12 +82,12 @@ void Time::format_12h(std::string& hour_str, std::string& am_pm) const {
     }
 }
 
-int Time::get_value() const {
+int Time::get_total_seconds() const {
     return hour * 3600 + minute * 60 + second;
 };
 
 bool Time::operator==(const Time& rhs) const {
-    return Time::get_value() == rhs.get_value();
+    return Time::get_total_seconds() == rhs.get_total_seconds();
 };
 
 bool Time::operator!=(const Time& rhs) const {
@@ -97,17 +95,20 @@ bool Time::operator!=(const Time& rhs) const {
 };
 
 bool Time::operator<(const Time& rhs) const {
-    return Time::get_value() < rhs.get_value();
+    return Time::get_total_seconds() < rhs.get_total_seconds();
 };
 
 bool Time::operator<=(const Time& rhs) const {
-    return Time::get_value() <= rhs.get_value();
+    return Time::get_total_seconds() <= rhs.get_total_seconds();
 };
 
 bool Time::operator>(const Time& rhs) const {
-    return Time::get_value() > rhs.get_value();
+    return Time::get_total_seconds() > rhs.get_total_seconds();
 };
 
 bool Time::operator>=(const Time& rhs) const {
-    return Time::get_value() >= rhs.get_value();
+    return Time::get_total_seconds() >= rhs.get_total_seconds();
 };
+
+
+

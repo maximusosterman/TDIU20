@@ -150,11 +150,24 @@ TEST_CASE ("Operators")
       CHECK( t1 <= t4 );
       CHECK( t2 <= t5 );
    }
-   // SECTION("Greater than or equal to")
-   // {
-   //    CHECK( t0 >= t3 );
-   //    CHECK( t1 >= t4 );
-   //    CHECK( t2 >= t5 );
+   SECTION("Greater than or equal to")
+   {
+      CHECK( t0 >= t3 );
+      CHECK( t1 >= t4 );
+      CHECK( t2 >= t5 );
+   }
+
+   // SECTION("Increment") {
+   //    Time t6{"00:00:00"};
+   //    Time t7{"23:59:59"};
+   //    Time t8{"00:00:01"};
+   //    Time t9{"00:00:00"};
+   //    Time t10{"23:59:59"};
+   //    Time t11{"00:00:01"};
+   //    CHECK( ++t6 == t8 );
+   //    CHECK( ++t7 == t9 );
+   //    CHECK( t6 == t11 );
+   //    CHECK( t7 == t10 );
    // }
 }
 

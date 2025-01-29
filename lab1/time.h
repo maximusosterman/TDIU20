@@ -6,9 +6,8 @@
 class Time {
 
 public:
-    Time();
     Time(int hour, int minute, int second);
-    Time(std::string const& time_string);
+    Time(std::string const& time_string = "00:00:00");
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
@@ -30,9 +29,10 @@ private:
     int minute;
     int second;
 
+    //helpers
     void check_valid_clock_range(int hour, int minute, int second) const;
     void format_12h(std::string& hour_str, std::string& am_pm) const; 
-    int get_value() const;
+    int get_total_seconds() const;
 
 };
 
