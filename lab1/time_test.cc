@@ -173,6 +173,25 @@ TEST_CASE ("Operators")
       CHECK( t0.to_string() == "00:00:01" );
       CHECK( t1.to_string() == "12:00:01" );
       CHECK( t2.to_string() == "00:00:00" );
+
+   }
+
+   SECTION("Pre-decremnt")
+   {
+      CHECK( (--t0).to_string() == "23:59:59" );
+      CHECK( (--t1).to_string() == "11:59:59" );
+      CHECK( (--t2).to_string() == "23:59:58" );
+   }
+
+   SECTION("Post-decrement")
+   {
+      CHECK( (t0--).to_string() == "00:00:00" );
+      CHECK( (t1--).to_string() == "12:00:00" );
+      CHECK( (t2--).to_string() == "23:59:59" );
+
+      CHECK( t0.to_string() == "23:59:59" );
+      CHECK( t1.to_string() == "11:59:59" );
+      CHECK( t2.to_string() == "23:59:58" );
    }
 }
 // Fill with more tests of other functions and operators!

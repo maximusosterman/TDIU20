@@ -132,3 +132,25 @@ Time Time::operator++(int) {
     return temp;
 }
 
+Time Time::operator--() {
+    --second;
+    if (second == -1) {
+        second = 59;
+        --minute;
+        if (minute == -1) {
+            minute = 59;
+            --hour;
+            if (hour == -1) {
+                hour = 23;
+            }
+        }
+    }
+    return *this;
+}
+
+Time Time::operator--(int) {
+    Time temp {*this};
+    --(*this);
+    return temp;
+}
+

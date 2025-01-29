@@ -27,6 +27,9 @@ public:
     Time operator++();
     Time operator++(int);
 
+    Time operator--();
+    Time operator--(int);
+
 private:
     int hour;
     int minute;
