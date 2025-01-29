@@ -16,13 +16,23 @@ public:
     bool is_am() const;
     std::string to_string(bool twentyfour_hour_format = true) const&;
 
+    bool operator==(const Time& rhs) const;
+    bool operator!=(const Time& rhs) const;
+
+    bool operator<(const Time& rhs) const;
+    bool operator<=(const Time& rhs) const;
+
+    bool operator>(const Time& rhs) const;
+    bool operator>=(const Time& rhs) const;
+
 private:
     int hour;
     int minute;
     int second;
 
-    void check_valid_clock_range(int hour, int minute, int second);
+    void check_valid_clock_range(int hour, int minute, int second) const;
     void format_12h(std::string& hour_str, std::string& am_pm) const; 
+    int get_value() const;
 
 };
 

@@ -29,7 +29,7 @@ int Time::get_second() const {
     return second;
 }
 
-void Time::check_valid_clock_range(int hour, int minute, int second) {
+void Time::check_valid_clock_range(int hour, int minute, int second) const {
     if (second > 59) throw std::logic_error("Second out of range!");
     if (minute > 59) throw std::logic_error("Minutes out of range!");
     if (hour > 23) throw std::logic_error("Hours out of range!");
@@ -84,5 +84,30 @@ void Time::format_12h(std::string& hour_str, std::string& am_pm) const {
     }
 }
 
+int Time::get_value() const {
+    return hour * 3600 + minute * 60 + second;
+};
 
+bool Time::operator==(const Time& rhs) const {
+    return Time::get_value() == rhs.get_value();
+};
 
+bool Time::operator!=(const Time& rhs) const {
+    return !(*this == rhs);
+};
+
+bool Time::operator<(const Time& rhs) const {
+    return Time::get_value() < rhs.get_value();
+};
+
+bool Time::operator<=(const Time& rhs) const {
+    return Time::get_value() <= rhs.get_value();
+};
+
+bool Time::operator>(const Time& rhs) const {
+    return Time::get_value() > rhs.get_value();
+};
+
+bool Time::operator>=(const Time& rhs) const {
+    return Time::get_value() >= rhs.get_value();
+};

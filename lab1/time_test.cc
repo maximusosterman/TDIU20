@@ -106,7 +106,57 @@ TEST_CASE ("to_string")
    }
 }
 
+TEST_CASE ("Operators")
+{
+   Time t0{"00:00:00"};
+   Time t1{"12:00:00"};
+   Time t2{"23:59:59"};
+   Time t3{"00:00:00"};
+   Time t4{"12:00:00"};
+   Time t5{"23:59:59"};
+   SECTION("Equality")
+   {
+      CHECK( t0 == t3 );
+      CHECK( t1 == t4 );
+      CHECK( t2 == t5 );
+   }
+   SECTION("Inequality")
+   {
+      CHECK_FALSE( t0 != t3 );
+      CHECK_FALSE( t1 != t4 );
+      CHECK_FALSE( t2 != t5 );
+   }
+   SECTION("Less than")
+   {
+      CHECK_FALSE( t0 < t3 );
+      CHECK_FALSE( t1 < t4 );
+      CHECK_FALSE( t2 < t5 );
 
+      CHECK( t0 < t1 );
+      CHECK( t4 < t5 );
+   }
+   SECTION("Greater than")
+   {
+      CHECK_FALSE( t0 > t3 );
+      CHECK_FALSE( t1 > t4 );
+      CHECK_FALSE( t2 > t5 );
+
+      CHECK( t1 > t0 );
+      CHECK( t5 > t4 );
+   }
+   SECTION("Less than or equal to")
+   {
+      CHECK( t0 <= t3 );
+      CHECK( t1 <= t4 );
+      CHECK( t2 <= t5 );
+   }
+   // SECTION("Greater than or equal to")
+   // {
+   //    CHECK( t0 >= t3 );
+   //    CHECK( t1 >= t4 );
+   //    CHECK( t2 >= t5 );
+   // }
+}
 
 // Fill with more tests of other functions and operators!
 
