@@ -39,7 +39,7 @@ bool Time::is_am() const {
     return hour < 12;
 }
 
-std::string Time::to_string(bool format) const& {
+std::string Time::to_string(bool twentyfour_hour_format) const& {
 
     std::string hour_str {};
     std::string minute_str {};
@@ -64,7 +64,7 @@ std::string Time::to_string(bool format) const& {
         second_str = std::to_string(second);
     }
 
-    if (!format) Time::format_12h(hour_str, am_pm);
+    if (!twentyfour_hour_format) Time::format_12h(hour_str, am_pm);
 
     return hour_str + ":" + minute_str + ":" + second_str + am_pm;
 }
