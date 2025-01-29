@@ -87,14 +87,22 @@ TEST_CASE ("to_string")
       CHECK( t4.to_string() == "23:59:59" );
    }
    
-   SECTION("24 hour format with argument")
+   SECTION("24 hour format with argument") // true arg
    {
-      // Fill with more tests!
-   } 
+      CHECK( t0.to_string(true) == "00:00:00" );
+      CHECK( t1.to_string(true) == "11:59:59" );
+      CHECK( t2.to_string(true) == "12:00:00" );
+      CHECK( t3.to_string(true) == "13:00:00" );
+      CHECK( t4.to_string(true) == "23:59:59" );
+   }
 
-   SECTION("12 hour format")
+   SECTION("12 hour format") // flase arg
    {
-      // Fill with more tests!
+      CHECK( t0.to_string(false) == "12:00:00am" );
+      CHECK( t1.to_string(false) == "11:59:59am" );
+      CHECK( t2.to_string(false) == "12:00:00pm" );
+      CHECK( t3.to_string(false) == "01:00:00pm" );
+      CHECK( t4.to_string(false) == "11:59:59pm" );
    }
 }
 
