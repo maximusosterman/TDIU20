@@ -1,5 +1,6 @@
 #include "catch.hpp"
 #include "time.h"
+#include <sstream>
 
 using namespace std;
 
@@ -193,6 +194,37 @@ TEST_CASE ("Operators")
       CHECK( t1.to_string() == "11:59:59" );
       CHECK( t2.to_string() == "23:59:58" );
    }
+
 }
-// Fill with more tests of other functions and operators!
+
+TEST_CASE("Print out to stream") 
+{
+   Time t0{"00:00:00"};
+   Time t1{"12:00:00"};
+   Time t2{"23:59:59"};
+   SECTION("24 hour format")
+   {
+      ostringstream oss;
+      oss << t0;
+      CHECK( oss.str() == "00:00:00" );
+      oss.str("");
+      oss << t1;
+      CHECK( oss.str() == "12:00:00" );
+      oss.str("");
+      oss << t2;
+      CHECK( oss.str() == "23:59:59" );
+   }
+   SECTION("12 hour format")
+   {
+      ostringstream oss;
+      oss << t0.to_string(false);
+      CHECK( oss.str() == "12:00:00am" );
+      oss.str("");
+      oss << t1.to_string(false);
+      CHECK( oss.str() == "12:00:00pm" );
+      oss.str("");
+      oss << t2.to_string(false);
+      CHECK( oss.str() == "11:59:59pm" );
+   }
+} 
 

@@ -154,3 +154,6 @@ Time Time::operator--(int) {
     return temp;
 }
 
+std::ostream& operator<<(std::ostream& os, const Time& time) {
+    return os << time.to_string();
+}
