@@ -108,7 +108,27 @@ bool Time::operator>(const Time& rhs) const {
 
 bool Time::operator>=(const Time& rhs) const {
     return Time::get_total_seconds() >= rhs.get_total_seconds();
-};
+}
 
+Time Time::operator++() {
+    ++second;
+    if (second == 60) {
+        second = 0;
+        ++minute;
+        if (minute == 60) {
+            minute = 0;
+            ++hour;
+            if (hour == 24) {
+                hour = 0;
+            }
+        }
+    }
+    return *this;
+}
 
+Time Time::operator++(int) {
+    Time temp {*this};
+    ++(*this);
+    return temp;
+}
 

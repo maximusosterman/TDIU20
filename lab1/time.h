@@ -24,6 +24,9 @@ public:
     bool operator>(const Time& rhs) const;
     bool operator>=(const Time& rhs) const;
 
+    Time operator++();
+    Time operator++(int);
+
 private:
     int hour;
     int minute;
