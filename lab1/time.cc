@@ -1,6 +1,7 @@
 #include "time.h"
 #include <stdexcept>
 #include <string>  
+#include <iostream>
 
 Time::Time(int hour, int minute, int second) 
     : hour {hour}, minute {minute}, second {second} {
@@ -202,3 +203,9 @@ std::ostream& operator<<(std::ostream& os, const Time& time) {
     return os << time.to_string();
 } 
 
+std::istream& operator>>(std::istream& is, Time& time) {
+    std::string time_str {};
+    is >> time_str;
+    time = Time{time_str};
+    return is;
+}

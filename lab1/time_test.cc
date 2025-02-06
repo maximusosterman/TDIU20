@@ -254,5 +254,25 @@ TEST_CASE("Print out to stream")
       oss << t2.to_string(false);
       CHECK( oss.str() == "11:59:59pm" );
    }
-} 
+}
+
+TEST_CASE("Input to stream")
+{
+   Time t0{}; 
+   istringstream iss;
+   SECTION("24 hour format")
+   {
+      iss.str("00:00:00");
+      iss >> t0;
+      CHECK( t0.to_string() == "00:00:00" );
+   }
+   SECTION("12 hour format")
+   {
+      iss.str("00:00:00");
+      iss >> t0;
+      CHECK( t0.to_string(false) == "12:00:00am" );
+
+   }
+
+}
 

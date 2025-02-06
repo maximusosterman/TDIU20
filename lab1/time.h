@@ -50,5 +50,7 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Time& time);
+std::istream& operator>>(std::istream& is, Time& time);
+
 
 #endif
