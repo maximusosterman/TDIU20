@@ -154,6 +154,51 @@ Time Time::operator--(int) {
     return temp;
 }
 
+Time Time::operator+(int seconds) {
+    Time temp {*this};
+    temp.second += seconds;
+    while (temp.second >= 60) {
+        temp.second -= 60;
+        ++temp.minute;
+        if (temp.minute == 60) {
+            temp.minute = 0;
+            ++temp.hour;
+            if (temp.hour == 24) {
+                temp.hour = 0;
+            }
+        }
+    }
+    return temp;
+}
+
+Time Time::operator+=(int seconds) {
+    *this = *this + seconds;
+    return *this;
+}
+
+Time Time::operator-(int seconds) {
+    Time temp {*this};
+    temp.second -= seconds;
+    while (temp.second < 0) {
+        temp.second += 60;
+        --temp.minute;
+        if (temp.minute < 0) {
+            temp.minute = 59;
+            --temp.hour;
+            if (temp.hour < 0) {
+                temp.hour = 23;
+            }
+        }
+    }
+    return temp;
+}
+
+Time Time::operator-=(int seconds) {
+    *this = *this - seconds;
+    return *this;
+}   
+
 std::ostream& operator<<(std::ostream& os, const Time& time) {
     return os << time.to_string();
-}
+} 
+

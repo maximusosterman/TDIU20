@@ -31,6 +31,12 @@ public:
     Time operator--();
     Time operator--(int);
 
+    Time operator+(int seconds);
+    Time operator+=(int seconds);
+
+    Time operator-(int seconds);
+    Time operator-=(int seconds);
+
 private:
     int hour;
     int minute;

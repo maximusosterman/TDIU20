@@ -112,9 +112,15 @@ TEST_CASE ("Operators")
    Time t0{"00:00:00"};
    Time t1{"12:00:00"};
    Time t2{"23:59:59"};
+
    Time t3{"00:00:00"};
    Time t4{"12:00:00"};
    Time t5{"23:59:59"};
+
+   Time t6{"00:00:00"};
+   Time t7{"12:00:00"};
+   Time t8{"23:59:59"};
+
    SECTION("Equality")
    {
       CHECK( t0 == t3 );
@@ -195,6 +201,28 @@ TEST_CASE ("Operators")
       CHECK( t2.to_string() == "23:59:58" );
    }
 
+   SECTION("Additon")
+   {
+      CHECK( (t0 + 1).to_string() == "00:00:01" );
+      CHECK( (t1 + 1).to_string() == "12:00:01" );
+      CHECK( (t2 + 1).to_string() == "00:00:00" );
+      CHECK ( (t0 + 61).to_string() == "00:01:01" );
+
+      CHECK ( (t0 += 1).to_string() == "00:00:01" );
+      CHECK( (t1 += 1).to_string() == "12:00:01" );
+      CHECK( (t2 += 1).to_string() == "00:00:00" );
+   }
+
+   SECTION("Subtraction")
+   {
+      CHECK( (t6 - 1).to_string() == "23:59:59" );
+      CHECK( (t7 - 1).to_string() == "11:59:59" );
+      CHECK( (t8 - 1).to_string() == "23:59:58" );
+
+      CHECK( (t6 -= 1).to_string() == "23:59:59" );
+      CHECK( (t7 -= 1).to_string() == "11:59:59" );
+      CHECK( (t8 -= 1).to_string() == "23:59:58" );
+   }
 }
 
 TEST_CASE("Print out to stream") 
