@@ -20,7 +20,7 @@
 
 // Komplettering (bonus): operator+= fungerar inte enligt C++-konvention. DONE
 
-// Komplettering (bonus): Addition med ett heltal saknar hantering för det kommutativa fallet.
+// Komplettering (bonus): Addition med ett heltal saknar hantering för det kommutativa fallet. DONE
 
 class Time {
 
@@ -50,7 +50,6 @@ public:
     Time operator--();
     Time operator--(int);
 
-    Time operator+(int seconds);
     Time& operator+=(int seconds);
 
     Time operator-(int seconds);
@@ -67,6 +66,9 @@ private:
     int get_total_seconds() const;
 
 };
+
+Time operator+(Time& lhs, int seconds);
+Time operator+(int seconds, Time& rhs);
 
 std::ostream& operator<<(std::ostream& os, const Time& time);
 std::istream& operator>>(std::istream& is, Time& time);

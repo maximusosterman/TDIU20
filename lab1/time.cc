@@ -143,12 +143,16 @@ Time Time::operator++() {
     return *this;
 }
 
-Time Time::operator+(int seconds) {
-    Time temp {*this};
+Time operator+(Time& lhs, int seconds) {
+    Time temp {lhs};
     for (int i = 0; i < seconds; ++i) {
         ++temp;
     }
     return temp;
+}
+
+Time operator+(int seconds, Time& rhs) {
+    return rhs + seconds;
 }
 
 Time Time::operator++(int) {
