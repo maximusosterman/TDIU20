@@ -6,7 +6,7 @@
 // Komplettering: stoi kastar ett eget undantag som inte ska läcka vidare till er användare.
 //   Tips: Strängströmmar löser problemet mycket lättare.
 
-// Komplettering (bonus): Duplicering av kod mellan operator+ och operator++.
+// Komplettering (bonus): Duplicering av kod mellan operator+ och operator++. DONE
 // Komplettering (bonus): Duplicering av kod mellan operator- och operator--.
 
 
@@ -134,6 +134,14 @@ Time Time::operator++() {
     return *this;
 }
 
+Time Time::operator+(int seconds) {
+    Time temp {*this};
+    for (int i = 0; i < seconds; ++i) {
+        ++temp;
+    }
+    return temp;
+}
+
 Time Time::operator++(int) {
     Time temp {*this};
     ++(*this);
@@ -162,22 +170,7 @@ Time Time::operator--(int) {
     return temp;
 }
 
-Time Time::operator+(int seconds) {
-    Time temp {*this};
-    temp.second += seconds;
-    while (temp.second >= 60) {
-        temp.second -= 60;
-        ++temp.minute;
-        if (temp.minute == 60) {
-            temp.minute = 0;
-            ++temp.hour;
-            if (temp.hour == 24) {
-                temp.hour = 0;
-            }
-        }
-    }
-    return temp;
-}
+
 
 Time Time::operator+=(int seconds) {
     *this = *this + seconds;
