@@ -1,0 +1,28 @@
+{
+    "files.associations": {
+        "*.scss": "scss",
+        "string": "cpp",
+        "__verbose_abort": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "stdexcept": "cpp",
+        "string_view": "cpp",
+        "tuple": "cpp",
+        "typeinfo": "cpp",
+        "cctype": "cpp",
+        "cmath": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "variant": "cpp",
+        "algorithm": "cpp"
+    }
+}

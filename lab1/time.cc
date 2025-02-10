@@ -1,10 +1,11 @@
 #include "time.h"
+#include <sstream>
 #include <stdexcept>
 #include <string>  
 #include <iostream>
 
 // Komplettering: stoi kastar ett eget undantag som inte ska läcka vidare till er användare.
-//   Tips: Strängströmmar löser problemet mycket lättare.
+//   Tips: Strängströmmar löser problemet mycket lättare. DONE
 
 // Komplettering (bonus): Duplicering av kod mellan operator+ och operator++. DONE
 // Komplettering (bonus): Duplicering av kod mellan operator- och operator--. DONE
@@ -15,13 +16,21 @@ Time::Time(int hour, int minute, int second)
         check_valid_clock_range(hour, minute, second);
     }
 
-Time::Time(std::string const& time_string)
-    : hour      {std::stoi(time_string.substr(0, 2))},  
-      minute    {std::stoi(time_string.substr(3, 2))},
-      second    {std::stoi(time_string.substr(6, 2))} {
+Time::Time(std::string const& time_string) {
+    
+    int h, m, s;
+    char c1, c2;
+    std::istringstream ss(time_string);
 
-        check_valid_clock_range(hour, minute, second);
+    if (!(ss >> h >> c1 >> m >> c2 >> s) || c1 != ':' || c2 != ':') {
+        throw std::logic_error("Invalid time format!");
     }
+    hour = h;
+    minute = m;
+    second = s;
+
+    check_valid_clock_range(hour, minute, second);
+}
 
 int Time::get_hour() const {
     return hour;
