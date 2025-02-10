@@ -14,7 +14,7 @@
 //
 //   Har ni frågor om kompletteringen kan ni maila mig.
 
-// Komplettering: Kompilerar med varningar.
+// Komplettering: Kompilerar med varningar. DONE
 
 // Komplettering: Operatorer ska fungera enligt c++ standard.
 
@@ -44,10 +44,10 @@ public:
     bool operator>(const Time& rhs) const;
     bool operator>=(const Time& rhs) const;
 
-    Time operator++();
+    Time& operator++();
     Time operator++(int);
 
-    Time operator--();
+    Time& operator--();
     Time operator--(int);
 
     Time& operator+=(int seconds);
@@ -67,8 +67,8 @@ private:
 
 };
 
-Time operator+(Time& lhs, int seconds);
-Time operator+(int seconds, Time& rhs);
+Time operator+(const Time& lhs, int seconds);
+Time operator+(int seconds, const Time& rhs);
 
 std::ostream& operator<<(std::ostream& os, const Time& time);
 std::istream& operator>>(std::istream& is, Time& time);

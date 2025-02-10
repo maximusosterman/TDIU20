@@ -127,7 +127,7 @@ bool Time::operator>=(const Time& rhs) const {
     return Time::get_total_seconds() >= rhs.get_total_seconds();
 }
 
-Time Time::operator++() {
+Time& Time::operator++() {
     ++second;
     if (second == 60) {
         second = 0;
@@ -143,7 +143,7 @@ Time Time::operator++() {
     return *this;
 }
 
-Time operator+(Time& lhs, int seconds) {
+Time operator+(const Time& lhs, int seconds) {
     Time temp {lhs};
     for (int i = 0; i < seconds; ++i) {
         ++temp;
@@ -151,7 +151,7 @@ Time operator+(Time& lhs, int seconds) {
     return temp;
 }
 
-Time operator+(int seconds, Time& rhs) {
+Time operator+(int seconds, const Time& rhs) {
     return rhs + seconds;
 }
 
@@ -161,7 +161,7 @@ Time Time::operator++(int) {
     return temp;
 }
 
-Time Time::operator--() {
+Time& Time::operator--() {
     --second;
     if (second == -1) {
         second = 59;
