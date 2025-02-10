@@ -18,7 +18,7 @@
 
 // Komplettering: Operatorer ska fungera enligt c++ standard.
 
-// Komplettering (bonus): operator+= fungerar inte enligt C++-konvention.
+// Komplettering (bonus): operator+= fungerar inte enligt C++-konvention. DONE
 
 // Komplettering (bonus): Addition med ett heltal saknar hantering för det kommutativa fallet.
 
@@ -51,7 +51,7 @@ public:
     Time operator--(int);
 
     Time operator+(int seconds);
-    Time operator+=(int seconds);
+    Time& operator+=(int seconds);
 
     Time operator-(int seconds);
     Time operator-=(int seconds);

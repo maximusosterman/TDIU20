@@ -187,12 +187,15 @@ Time Time::operator-(int seconds) {
     return temp;
 }
 
-Time Time::operator+=(int seconds) {
-    *this = *this + seconds;
+Time& Time::operator+=(int seconds) {
+    int total_seconds = get_total_seconds() + seconds; 
+    
+    hour = (total_seconds / 3600) % 24;
+    minute = (total_seconds / 60) % 60;
+    second = total_seconds % 60;
+
     return *this;
 }
-
-
 
 Time Time::operator-=(int seconds) {
     *this = *this - seconds;
