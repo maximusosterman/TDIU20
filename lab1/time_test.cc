@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "time.h"
+#include "time.hpp"
 #include <sstream>
 
 using namespace std;
