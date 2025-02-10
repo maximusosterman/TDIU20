@@ -7,7 +7,7 @@
 //   Tips: Strängströmmar löser problemet mycket lättare.
 
 // Komplettering (bonus): Duplicering av kod mellan operator+ och operator++. DONE
-// Komplettering (bonus): Duplicering av kod mellan operator- och operator--.
+// Komplettering (bonus): Duplicering av kod mellan operator- och operator--. DONE
 
 
 Time::Time(int hour, int minute, int second) 
@@ -170,29 +170,20 @@ Time Time::operator--(int) {
     return temp;
 }
 
-
+Time Time::operator-(int seconds) {
+    Time temp {*this};
+    for (int i = 0; i < seconds; ++i) {
+        --temp;
+    }
+    return temp;
+}
 
 Time Time::operator+=(int seconds) {
     *this = *this + seconds;
     return *this;
 }
 
-Time Time::operator-(int seconds) {
-    Time temp {*this};
-    temp.second -= seconds;
-    while (temp.second < 0) {
-        temp.second += 60;
-        --temp.minute;
-        if (temp.minute < 0) {
-            temp.minute = 59;
-            --temp.hour;
-            if (temp.hour < 0) {
-                temp.hour = 23;
-            }
-        }
-    }
-    return temp;
-}
+
 
 Time Time::operator-=(int seconds) {
     *this = *this - seconds;
