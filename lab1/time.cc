@@ -3,6 +3,13 @@
 #include <string>  
 #include <iostream>
 
+// Komplettering: stoi kastar ett eget undantag som inte ska läcka vidare till er användare.
+//   Tips: Strängströmmar löser problemet mycket lättare.
+
+// Komplettering (bonus): Duplicering av kod mellan operator+ och operator++.
+// Komplettering (bonus): Duplicering av kod mellan operator- och operator--.
+
+
 Time::Time(int hour, int minute, int second) 
     : hour {hour}, minute {minute}, second {second} {
         check_valid_clock_range(hour, minute, second);

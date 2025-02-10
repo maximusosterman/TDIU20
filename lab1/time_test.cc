@@ -267,7 +267,7 @@ TEST_CASE("Input to stream")
       CHECK( t0.to_string() == "00:00:00" );
    }
    SECTION("12 hour format")
-   {
+   { 
       iss.str("00:00:00");
       iss >> t0;
       CHECK( t0.to_string(false) == "12:00:00am" );

@@ -3,6 +3,25 @@
 
 #include <string>
 
+// Information om komplettering:
+//   Siffrorna hänvisar till rättningsprotokollet som finns på
+//   kurshemsidan -> läsning -> Literatur -> "Uppgruppens bedömningsprotokoll"
+//   Kompletteringen kan gälla hela filen och alla filer i labben,
+//   så får ni komplettering på en sak, kan samma sak förekomma på
+//   fler ställen utan att jag skrivit det.
+//
+//   Komplettering lämnas in via sendlab efter senast en (1) vecka
+//
+//   Har ni frågor om kompletteringen kan ni maila mig.
+
+// Komplettering: Kompilerar med varningar.
+
+// Komplettering: Operatorer ska fungera enligt c++ standard.
+
+// Komplettering (bonus): operator+= fungerar inte enligt C++-konvention.
+
+// Komplettering (bonus): Addition med ett heltal saknar hantering för det kommutativa fallet.
+
 class Time {
 
 public:
