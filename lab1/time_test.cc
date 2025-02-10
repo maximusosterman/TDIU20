@@ -211,6 +211,12 @@ TEST_CASE ("Operators")
       CHECK ( (t0 += 1).to_string() == "00:00:01" );
       CHECK( (t1 += 1).to_string() == "12:00:01" );
       CHECK( (t2 += 1).to_string() == "00:00:00" );
+
+
+      CHECK( (1 + t0).to_string() == "00:00:02" );
+      CHECK( (1 + t1).to_string() == "12:00:02" );
+      CHECK( (1 + t2).to_string() == "00:00:01" );
+      CHECK ( (61 + t0).to_string() == "00:02:02" );
    }
 
    SECTION("Subtraction")
