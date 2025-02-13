@@ -1,4 +1,5 @@
 #include "list.hpp"
+#include "node.hpp"
 #include <initializer_list>
 #include <sstream>
 #include <string>
@@ -20,7 +21,7 @@ void List::insert(int data) {
 
 std::ostream& operator<<(std::ostream& os, List& const list) {
     std::string output_str = "{";
-    List::Node* current_node = first;
+    Node* current_node = first;
     
     do {
         output_str += std::to_string(current_node->data);

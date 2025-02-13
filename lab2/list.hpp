@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include <initializer_list>
+#include "node.hpp"
 
 class List {
 
@@ -16,11 +17,6 @@ public:
     
     private:
     
-    struct Node {
-        Node* prev;
-        int data;
-        Node* next;
-    };
     //Sentiel
     Node* first;
     Node* last;
