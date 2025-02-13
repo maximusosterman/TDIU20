@@ -90,7 +90,7 @@ void Time::format_12h(std::string& hour_str, std::string& am_pm) const {
     } else {
         am_pm = "pm";
         hour_str = std::to_string(hour - 12);
-        if (std::stoi(hour_str) < 10) {
+        if ((hour - 12) < 10) {
             hour_str = "0" + hour_str;
         };
     }
