@@ -8,13 +8,13 @@ TEST_CASE ("Constructors") {
         List empty_list;
         List single_elemnt_list{1};
         List initialized_list{2,5,7};
+        std::ostringstream outputStream;
 
         empty_list.insert(1);
-        std::ostringstream outputStream;
         outputStream << empty_list;  // Capture stream output
 
         CHECK(outputStream.str() == "{1, 2, 3}");  // Expected sorted output
-        
+
     }
 
 }

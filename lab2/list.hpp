@@ -1,7 +1,8 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef LIST_HPP
+#define LIST_HPP
 #include <initializer_list>
 #include "node.hpp"
+#include <iostream>
 
 class List {
 
@@ -11,18 +12,19 @@ public:
 
     void insert(int data);
 
-    
-    // get_first()
+
+    Node* get_first() const;
+    Node* get_last() const;
     // get_last()
-    
+
     private:
-    
+
     //Sentiel
     Node* first;
     Node* last;
-    
+
 };
 
 #endif // LIST_H
 
-std::ostream& operator<<(std::ostream& os, List& const list);
+std::ostream& operator<<(std::ostream& os, List &list);
