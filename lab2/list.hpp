@@ -10,8 +10,9 @@ public:
     List();
     List(std::initializer_list<int> values);
 
-    void insert(int data);
+    bool is_empty();
 
+    void insert(int data);
 
     Node* get_first() const;
     Node* get_last() const;

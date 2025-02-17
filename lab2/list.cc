@@ -13,9 +13,14 @@ List::List(std::initializer_list<int> values) {
     // }
 }
 
+bool List::is_empty() {
+    return first == nullptr;
+}
+
 void List::insert(int data) {
-    if (first == nullptr) {
+    if (is_empty()) { // if to insert into an empty list
         first = new Node{nullptr, data, nullptr};
+        last = first;
     }
 }
 
@@ -28,12 +33,18 @@ Node* List::get_last() const {
 }
 
 std::ostream& operator<<(std::ostream& os, List &list) {
+
+    if (list.is_empty()) {
+        return os << "{}";
+    }
+
     std::string output_str = "{";
     Node* current_node = list.get_first();
 
-    while (current_node->get_next() != nullptr) {
-        output_str += std::to_string(current_node->get_next()->get_data());
-    }
+    output_str += std::to_string(current_node->get_data());
+    // do {
+    //     current_node = current_node->get_next();
+    // } while (current_node != list.get_last());
 
     output_str += "}";
     return os << output_str;
