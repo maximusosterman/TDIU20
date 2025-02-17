@@ -39,9 +39,26 @@ TEST_CASE ("Constructors") {
 
     }
 
-    // SECTION("MULTIPLE ELEMENT LIST - INSERT, PRINT, INIT") {
-    //     List single_element_list{1, 2, 3 };
-    //     std::ostringstream outputStream;
+    SECTION("MULTIPLE ELEMENT LIST - INSERT, PRINT, INIT") {
+        List multiple_element_list{1, 2, 3 };
+        std::ostringstream outputStream;
 
-    // }
+        outputStream << multiple_element_list;  // Capture stream output
+        CHECK(outputStream.str() == "{1, 2, 3}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+        multiple_element_list.insert(3);
+        outputStream << multiple_element_list;  // Capture stream output
+        CHECK(outputStream.str() == "{1, 2, 3, 3}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+        multiple_element_list.insert(6);
+        outputStream << multiple_element_list;  // Capture stream output
+        CHECK(outputStream.str() == "{1, 2, 3, 3, 6}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+    }
 }

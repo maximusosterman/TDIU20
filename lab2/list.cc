@@ -7,12 +7,12 @@
 
 List::List() : first {nullptr}, last {nullptr} {};
 
-List::List(int value) {
+List::List(std::initializer_list<int> values) {
 
-    first = new Node{nullptr, value, nullptr};
-    // for (int value : values ) {
-
-    // }
+    // first = new Node{nullptr, value, nullptr};
+    for (int value : values ) {
+        List::insert(value);
+    }
 }
 
 bool List::is_empty() {
@@ -22,9 +22,11 @@ bool List::is_empty() {
 void List::insert(int data) {
     if (is_empty()) { // if to insert into an empty list
         first = new Node{nullptr, data, nullptr};
+        last = first;
         return;
     }
-    first->set_next(new Node{first, data, nullptr});
+    last->set_next(new Node{last, data, nullptr});
+    last = last->get_next();
 }
 
 Node* List::get_first() const {
@@ -36,7 +38,6 @@ Node* List::get_last() const {
 }
 
 std::ostream& operator<<(std::ostream& os, List &list) {
-
     if (list.is_empty()) {
         return os << "{}";
     }
@@ -44,15 +45,13 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     std::string output_str = "{";
     Node* current_node = list.get_first();
 
-    while(current_node != nullptr){
-
+    while (current_node != nullptr) {
         output_str += std::to_string(current_node->get_data());
 
-        if(current_node->get_next() == list.get_last()){
-            current_node = nullptr;
-            break;
+        if (current_node->get_next() != nullptr) {  // Only add ", " if not the last node
+            output_str += ", ";
         }
-        output_str += ", ";
+
         current_node = current_node->get_next();
     }
 
