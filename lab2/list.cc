@@ -31,10 +31,10 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     std::string output_str = "{";
     Node* current_node = list.get_first();
 
-    do {
+    while (current_node->get_next() != nullptr) {
         output_str += std::to_string(current_node->get_next()->get_data());
     }
-    while (current_node->get_next() != nullptr);
+
     output_str += "}";
     return os << output_str;
 }

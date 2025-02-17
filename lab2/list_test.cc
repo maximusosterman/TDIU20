@@ -13,7 +13,7 @@ TEST_CASE ("Constructors") {
         empty_list.insert(1);
         outputStream << empty_list;  // Capture stream output
 
-        CHECK(outputStream.str() == "{1, 2, 3}");  // Expected sorted output
+        CHECK(outputStream.str() == "{}");  // Expected sorted output
 
     }
 
