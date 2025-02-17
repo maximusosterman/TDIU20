@@ -26,17 +26,22 @@ TEST_CASE ("Constructors") {
         List single_element_list{1};
         std::ostringstream outputStream;
 
-
         outputStream << single_element_list;  // Capture stream output
         CHECK(outputStream.str() == "{1}");  // Expected sorted output
         outputStream.str("");  // Reset stream buffer
         outputStream.clear();
 
+        single_element_list.insert(2);
+        outputStream << single_element_list;  // Capture stream output
+        CHECK(outputStream.str() == "{1, 2}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
     }
 
-    SECTION("MULTIPLE ELEMENT LIST - INSERT, PRINT, INIT") {
-        List single_element_list{1, 2, 3 };
-        std::ostringstream outputStream;
+    // SECTION("MULTIPLE ELEMENT LIST - INSERT, PRINT, INIT") {
+    //     List single_element_list{1, 2, 3 };
+    //     std::ostringstream outputStream;
 
-    }
+    // }
 }

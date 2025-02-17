@@ -13,3 +13,7 @@ Node* Node::get_prev() const {
 int Node::get_data() const {
     return this->data;
 }
+
+void Node::set_next(Node* node) {
+    this->next = node;
+}

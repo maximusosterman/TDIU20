@@ -10,6 +10,8 @@ class Node {
         Node* get_prev() const;
         int get_data() const;
 
+        void set_next(Node* node);
+
     private:
 
         Node* prev;

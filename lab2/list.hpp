@@ -8,7 +8,8 @@ class List {
 
 public:
     List();
-    List(std::initializer_list<int> values);
+    List(int value);
+
 
     bool is_empty();
 
