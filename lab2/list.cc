@@ -8,6 +8,8 @@
 List::List() : first {nullptr}, last {nullptr} {};
 
 List::List(std::initializer_list<int> values) {
+
+
     // for (int value : values ) {
 
     // }

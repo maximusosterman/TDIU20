@@ -4,11 +4,10 @@
 
 TEST_CASE ("Constructors") {
 
-    SECTION("DEFAULT") {
+    SECTION("EMPTY LIST - INSERT, PRINT, INIT") {
         List empty_list;
-        List single_element_list{1};
-        List initialized_list{2,5,7};
         std::ostringstream outputStream;
+
 
         outputStream << empty_list;  // Capture stream output
         CHECK(outputStream.str() == "{}");  // Expected sorted output
@@ -18,7 +17,26 @@ TEST_CASE ("Constructors") {
         empty_list.insert(1);
         outputStream << empty_list;  // Capture stream output
         CHECK(outputStream.str() == "{1}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
 
     }
 
+    SECTION("SINGLE ELEMENT - LIST, INSERT, PRINT, INIT") {
+        List single_element_list{1};
+        std::ostringstream outputStream;
+
+
+        outputStream << single_element_list;  // Capture stream output
+        CHECK(outputStream.str() == "{1}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+    }
+
+    SECTION("MULTIPLE ELEMENT LIST - INSERT, PRINT, INIT") {
+        List single_element_list{1, 2, 3 };
+        std::ostringstream outputStream;
+
+    }
 }
