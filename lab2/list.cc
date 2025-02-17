@@ -20,7 +20,6 @@ bool List::is_empty() {
 void List::insert(int data) {
     if (is_empty()) { // if to insert into an empty list
         first = new Node{nullptr, data, nullptr};
-        last = first;
     }
 }
 
@@ -42,9 +41,6 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     Node* current_node = list.get_first();
 
     output_str += std::to_string(current_node->get_data());
-    // do {
-    //     current_node = current_node->get_next();
-    // } while (current_node != list.get_last());
 
     output_str += "}";
     return os << output_str;
