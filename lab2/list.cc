@@ -9,7 +9,6 @@ List::List() : first {nullptr}, last {nullptr} {};
 
 List::List(std::initializer_list<int> values) {
 
-    // first = new Node{nullptr, value, nullptr};
     for (int value : values ) {
         List::insert(value);
     }
@@ -58,3 +57,9 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     output_str += "}";
     return os << output_str;
 }
+
+
+// Insert in correct order
+// Get at index
+// Remove at index
+// Bonus

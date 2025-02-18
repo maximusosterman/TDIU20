@@ -8,7 +8,6 @@ TEST_CASE ("Constructors") {
         List empty_list;
         std::ostringstream outputStream;
 
-
         outputStream << empty_list;  // Capture stream output
         CHECK(outputStream.str() == "{}");  // Expected sorted output
         outputStream.str("");  // Reset stream buffer
