@@ -1,23 +1,20 @@
 #include "time.hpp"
 #include <sstream>
 #include <stdexcept>
-#include <string>  
+#include <string>
 #include <iostream>
 
-// Komplettering: stoi kastar ett eget undantag som inte ska läcka vidare till er användare.
-//   Tips: Strängströmmar löser problemet mycket lättare. DONE
+// OBS bonus rättas inte i framtiden.
+// Komplettering (bonus): Att implementera operator+ m.h.a operator++ är extremt ineffektivt.
+//   Implementera dem åt andra hållet istället. Gäller även operator-
 
-// Komplettering (bonus): Duplicering av kod mellan operator+ och operator++. DONE
-// Komplettering (bonus): Duplicering av kod mellan operator- och operator--. DONE
-
-
-Time::Time(int hour, int minute, int second) 
+Time::Time(int hour, int minute, int second)
     : hour {hour}, minute {minute}, second {second} {
         check_valid_clock_range(hour, minute, second);
     }
 
 Time::Time(std::string const& time_string) {
-    
+
     int h, m, s;
     char c1, c2;
     std::istringstream ss(time_string);
@@ -72,11 +69,7 @@ std::string Time::to_string(bool twentyfour_hour_format) const& {
     } else {
         minute_str = std::to_string(minute);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> parent of e0bbab6 (downloaded new files from grading)
     if (second < 10) {
         second_str = "0" + std::to_string(second);
     } else {
@@ -196,13 +189,8 @@ Time Time::operator-(int seconds) {
 }
 
 Time& Time::operator+=(int seconds) {
-<<<<<<< HEAD
     int total_seconds = get_total_seconds() + seconds;
 
-=======
-    int total_seconds = get_total_seconds() + seconds; 
-    
->>>>>>> parent of e0bbab6 (downloaded new files from grading)
     hour = (total_seconds / 3600) % 24;
     minute = (total_seconds / 60) % 60;
     second = total_seconds % 60;
@@ -213,19 +201,11 @@ Time& Time::operator+=(int seconds) {
 Time Time::operator-=(int seconds) {
     *this = *this - seconds;
     return *this;
-<<<<<<< HEAD
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time) {
     return os << time.to_string();
 }
-=======
-}   
-
-std::ostream& operator<<(std::ostream& os, const Time& time) {
-    return os << time.to_string();
-} 
->>>>>>> parent of e0bbab6 (downloaded new files from grading)
 
 std::istream& operator>>(std::istream& is, Time& time) {
     std::string time_str {};
