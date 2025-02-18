@@ -41,6 +41,39 @@ int Time::get_second() const {
     return second;
 }
 
+void Time::set_hour(int hour_in) {
+    hour = hour_in;
+    while (hour > 23) {
+        hour -= 24;
+    }
+}
+
+void Time::set_minute(int minute_in) {
+    minute = minute_in;
+    while (minute > 59) {
+        minute -= 60;
+        hour += 1;
+        if (hour > 23) {
+            hour -= 24;
+        }
+    }
+}
+
+void Time::set_second(int second_in) {
+    second = second_in;
+    while (second > 59) {
+        second -= 60;
+        minute += 1;
+        if (minute > 59) {
+            hour += 1;
+            minute -= 60;
+        }
+        if (hour > 23) {
+            hour -= 24;
+        }
+    }
+}
+
 void Time::check_valid_clock_range(int hour, int minute, int second) const {
     if (second > 59) throw std::logic_error("Second out of range!");
     if (minute > 59) throw std::logic_error("Minutes out of range!");
@@ -125,26 +158,18 @@ bool Time::operator>=(const Time& rhs) const {
 }
 
 Time& Time::operator++() {
-    ++second;
-    if (second == 60) {
-        second = 0;
-        ++minute;
-        if (minute == 60) {
-            minute = 0;
-            ++hour;
-            if (hour == 24) {
-                hour = 0;
-            }
-        }
-    }
+
+    *this = *this + 1;
+
     return *this;
 }
 
 Time operator+(const Time& lhs, int seconds) {
-    Time temp {lhs};
-    for (int i = 0; i < seconds; ++i) {
-        ++temp;
-    }
+    Time temp {lhs}; // Copy the original object
+    int current_seconds = lhs.get_second();
+
+    temp.set_second(current_seconds + seconds);
+
     return temp;
 }
 

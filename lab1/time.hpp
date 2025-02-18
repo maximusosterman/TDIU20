@@ -14,7 +14,11 @@ public:
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
-    
+
+    void set_hour(int hour_in);
+    void set_minute(int minute_in);
+    void set_second(int second_in);
+
     bool is_am() const;
     std::string to_string(bool twentyfour_hour_format = true) const&;
 
@@ -45,7 +49,7 @@ private:
 
     //helpers
     void check_valid_clock_range(int hour, int minute, int second) const;
-    void format_12h(std::string& hour_str, std::string& am_pm) const; 
+    void format_12h(std::string& hour_str, std::string& am_pm) const;
     int get_total_seconds() const;
 
 };
