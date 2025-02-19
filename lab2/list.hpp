@@ -9,6 +9,7 @@ class List {
 public:
     List();
     List(std::initializer_list<int> values);
+    ~List();
 
 
     bool is_empty() const;

@@ -15,6 +15,15 @@ List::List(std::initializer_list<int> values) {
     }
 }
 
+List::~List() {
+    Node* current = first;
+    while (current != nullptr) {
+        Node* next = current->get_next();
+        delete current;
+        current = next;
+    }
+}
+
 bool List::is_empty() const {
     return first == nullptr;
 }
