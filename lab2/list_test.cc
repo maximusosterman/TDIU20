@@ -147,6 +147,7 @@ TEST_CASE ("Constructors") {
 
     SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
         List unsorted_list{1, 4, 2};
+        List backwards_list{5, 4, 3, 2, 1};
         std::ostringstream outputStream;
 
         outputStream << unsorted_list;
@@ -169,6 +170,18 @@ TEST_CASE ("Constructors") {
         unsorted_list.insert(5);
         outputStream << unsorted_list;
         CHECK(outputStream.str() == "{0, 1, 2, 3, 4, 5}");
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+        outputStream << backwards_list;
+        CHECK(outputStream.str() == "{1, 2, 3, 4, 5}");
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+        backwards_list.insert(-2);
+        outputStream << backwards_list;
+        CHECK(outputStream.str() == "{-2, 1, 2, 3, 4, 5}");
+
     }
 
 
