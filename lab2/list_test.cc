@@ -114,34 +114,33 @@ TEST_CASE ("Constructors") {
         outputStream.str("");  // Reset stream buffer
         outputStream.clear();
 
-        // REQUIRE_THROWS_WITH(multiple_element_list.remove(0), "Index out of range!");
+        REQUIRE_THROWS_WITH(multiple_element_list.remove(0), "Index out of range!");
 
     }
 
-    // SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
-    //     List unsorted_list{1, 2, 4};
-    //     std::ostringstream outputStream;
+    SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
+        List unsorted_list{1, 2, 4};
+        std::ostringstream outputStream;
 
-    //     outputStream << unsorted_list;
-    //     CHECK(outputStream.str() == "{1, 2, 4}");
-    //     outputStream.str("");  // Reset stream buffer
-    //     outputStream.clear();
+        outputStream << unsorted_list;
+        CHECK(outputStream.str() == "{1, 2, 4}");
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
 
-    //     unsorted_list.insert(3);
-    //     outputStream << unsorted_list;
-    //     CHECK(outputStream.str() == "{1, 2, 3, 4}");
-    //     outputStream.str("");  // Reset stream buffer
-    //     outputStream.clear();
+        unsorted_list.insert(3);
+        outputStream << unsorted_list;
+        CHECK(outputStream.str() == "{1, 2, 3, 4}");
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
 
-    //     unsorted_list.insert(0);
-    //     outputStream << unsorted_list;
-    //     CHECK(outputStream.str() == "{0, 1, 2, 3, 4}");
-    //     outputStream.str("");  // Reset stream buffer
-    //     outputStream.clear();
+        unsorted_list.insert(0);
+        outputStream << unsorted_list;
+        CHECK(outputStream.str() == "{0, 1, 2, 3, 4}");
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
 
-    //     unsorted_list.insert(5);
-    //     outputStream << unsorted_list;
-    //     CHECK(outputStream.str() == "{0, 1, 2, 3, 4, 5}");
-
-    // }
+        unsorted_list.insert(5);
+        outputStream << unsorted_list;
+        CHECK(outputStream.str() == "{0, 1, 2, 3, 4, 5}");
+    }
 }

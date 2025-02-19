@@ -8,7 +8,7 @@
 
 List::List() : first {nullptr}, last {nullptr} {};
 
-List::List(std::initializer_list<int> values) {
+List::List(std::initializer_list<int> values) : first {nullptr}, last {nullptr} {
 
     for (int value : values ) {
         List::insert(value);
