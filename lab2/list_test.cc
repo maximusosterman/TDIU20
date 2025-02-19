@@ -118,6 +118,21 @@ TEST_CASE ("Constructors") {
 
     }
 
+    SECTION("GET LENGTH") {
+        List empty_list;
+
+        CHECK(empty_list.get_length() == 0);
+
+        empty_list.insert(1);
+        CHECK(empty_list.get_length() == 1);
+
+        empty_list.insert(1);
+        CHECK(empty_list.get_length() == 2);
+
+        empty_list.remove(1);
+        CHECK(empty_list.get_length() == 1);
+    }
+
     SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
         List unsorted_list{1, 2, 4};
         std::ostringstream outputStream;
@@ -143,4 +158,6 @@ TEST_CASE ("Constructors") {
         outputStream << unsorted_list;
         CHECK(outputStream.str() == "{0, 1, 2, 3, 4, 5}");
     }
+
+
 }

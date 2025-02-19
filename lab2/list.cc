@@ -34,9 +34,26 @@ void List::insert(int data) {
         last = first;
         return;
     }
+
     last->set_next(new Node{last, data, nullptr});
     last = last->get_next();
 }
+
+int List::get_length() const {
+
+    if (this->is_empty()) return 0;
+
+    int length {1};
+    Node* node = get_first();
+
+    while(node->get_next() != nullptr) {
+        node = node->get_next();
+        length += 1;
+    }
+
+    return length;
+}
+
 
 Node* List::get_first() const {
     return first;

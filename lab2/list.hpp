@@ -20,9 +20,10 @@ public:
 
     Node* get_first() const;
     Node* get_last() const;
+    Node* get_node(int index) const;
+    int get_length() const;
 
     int index_of(int index) const;
-    Node* get_node(int index) const;
 
 private:
 
