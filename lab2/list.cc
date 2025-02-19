@@ -35,8 +35,39 @@ void List::insert(int data) {
         return;
     }
 
-    last->set_next(new Node{last, data, nullptr});
-    last = last->get_next();
+    if (get_first()->get_data() >= data) {
+        first->set_prev(new Node{nullptr, data, first});
+        first = first->get_prev();
+        return;
+    }
+
+    if (get_last()->get_data() <= data ) {
+        last->set_next(new Node{last, data, nullptr});
+        last = last->get_next();
+        return;
+    }
+
+    int list_length = this->get_length();
+    Node* current_node;
+    Node* new_node;
+    Node* left_of_current_node;
+
+    for (int node {}; node < list_length; node++) {
+        current_node = get_node(node); // The current node in the iteration
+        left_of_current_node = current_node->get_next();
+        // new node is to be inserted between current node and the one right of it.
+
+        if (current_node->get_data() >= data) {
+            current_node->set_prev(new Node{left_of_current_node, data, current_node});
+            new_node = current_node->get_prev();
+            left_of_current_node->set_next(new_node);
+            return;
+        }
+    }
+
+
+    // last->set_next(new Node{last, data, nullptr});
+    // last = last->get_next();
 }
 
 int List::get_length() const {

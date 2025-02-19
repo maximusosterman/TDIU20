@@ -19,6 +19,18 @@ TEST_CASE ("Constructors") {
         outputStream.str("");  // Reset stream buffer
         outputStream.clear();
 
+        empty_list.insert(0);
+        outputStream << empty_list;  // Capture stream output
+        CHECK(outputStream.str() == "{0, 1}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
+        empty_list.insert(2);
+        outputStream << empty_list;  // Capture stream output
+        CHECK(outputStream.str() == "{0, 1, 2}");  // Expected sorted output
+        outputStream.str("");  // Reset stream buffer
+        outputStream.clear();
+
     }
 
     SECTION("SINGLE ELEMENT - LIST, INSERT, PRINT, INIT") {
@@ -134,7 +146,7 @@ TEST_CASE ("Constructors") {
     }
 
     SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
-        List unsorted_list{1, 2, 4};
+        List unsorted_list{1, 4, 2};
         std::ostringstream outputStream;
 
         outputStream << unsorted_list;
