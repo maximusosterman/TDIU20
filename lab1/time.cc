@@ -13,7 +13,8 @@ Time::Time(int hour, int minute, int second)
         check_valid_clock_range(hour, minute, second);
     }
 
-Time::Time(std::string const& time_string) {
+Time::Time(std::string const& time_string)
+    : hour(0), minute(0), second(0) {
 
     int h, m, s;
     char c1, c2;
