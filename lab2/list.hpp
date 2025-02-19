@@ -19,6 +19,8 @@ public:
     Node* get_last() const;
     // get_last()
 
+    int get(int index) const;
+
     private:
 
     //Sentiel

@@ -60,4 +60,25 @@ TEST_CASE ("Constructors") {
         outputStream.clear();
 
     }
+
+    SECTION("ACCESS AT INDEX - GET(INDEX)") {
+        List multiple_element_list{1, 2, 3 };
+        std::ostringstream outputStream;
+
+        CHECK(multiple_element_list.get(0) == 1);
+        CHECK(multiple_element_list.get(1) == 2);
+        CHECK(multiple_element_list.get(2) == 3);
+
+        REQUIRE_THROWS_WITH(multiple_element_list.get(3), "Index out of range!");
+        REQUIRE_THROWS_WITH(multiple_element_list.get(-1), "Index out of range!");
+    }
+
+    // SECTION("INSERT LIST IN CORRECT ORDER - RISING ORDER") {
+    //     List unsorted_list{2, 3, 1};
+    //     std::ostringstream outputStream;
+
+    //     outputStream << unsorted_list;
+    //     CHECK(outputStream.str() == "{1, 2, 3}");
+
+    // }
 }

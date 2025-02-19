@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <iostream>
+#include <stdexcept>
 
 List::List() : first {nullptr}, last {nullptr} {};
 
@@ -58,8 +59,23 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     return os << output_str;
 }
 
+int List::get(int index) const {
+
+    if (index < 0) throw std::logic_error("Index out of range!");
+
+    Node* current_node = get_first();
+
+    for (int node {}; node < index; node++) {
+        if (current_node->get_next() == nullptr) {
+            throw std::logic_error("Index out of range!");
+        }
+        current_node = current_node->get_next();
+    }
+
+    return current_node->get_data();
+}
+
 
 // Insert in correct order
-// Get at index
 // Remove at index
 // Bonus
