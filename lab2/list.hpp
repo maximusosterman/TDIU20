@@ -11,17 +11,19 @@ public:
     List(std::initializer_list<int> values);
 
 
-    bool is_empty();
+    bool is_empty() const;
 
     void insert(int data);
+    void remove(int index);
+
 
     Node* get_first() const;
     Node* get_last() const;
-    // get_last()
 
-    int get(int index) const;
+    int index_of(int index) const;
+    Node* get_node(int index) const;
 
-    private:
+private:
 
     //Sentiel
     Node* first;

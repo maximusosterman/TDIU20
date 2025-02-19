@@ -11,6 +11,9 @@ class Node {
         int get_data() const;
 
         void set_next(Node* node);
+        void set_next_null();
+        void set_prev(Node* node);
+        void set_prev_null();
 
     private:
 

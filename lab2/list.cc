@@ -15,7 +15,7 @@ List::List(std::initializer_list<int> values) {
     }
 }
 
-bool List::is_empty() {
+bool List::is_empty() const {
     return first == nullptr;
 }
 
@@ -59,11 +59,13 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     return os << output_str;
 }
 
-int List::get(int index) const {
-
-    if (index < 0) throw std::logic_error("Index out of range!");
+Node* List::get_node(int index) const {
 
     Node* current_node = get_first();
+
+    if (!current_node || index < 0) {
+        throw std::logic_error("Index out of range!");
+    }
 
     for (int node {}; node < index; node++) {
         if (current_node->get_next() == nullptr) {
@@ -72,10 +74,41 @@ int List::get(int index) const {
         current_node = current_node->get_next();
     }
 
-    return current_node->get_data();
+    return current_node;
+}
+
+int List::index_of(int index) const {
+    return this->get_node(index)->get_data();
+}
+
+void List::remove(int index) {
+    Node* node = get_node(index);
+
+    if (node == get_first() && node == get_last()) {
+        first = last = nullptr;
+    }
+
+    else if (node == get_first()) {
+        first = node->get_next();
+        first->set_prev_null();
+
+    }
+    else if (node == get_last()) {
+        last = node->get_prev();
+        last->set_next_null();
+    }
+    else {
+        Node* right_node = node->get_next();
+        Node* left_node = node->get_prev();
+
+        left_node->set_next(right_node);
+        right_node->set_prev(left_node);
+    }
+
+    delete node;
+    node = nullptr;
 }
 
 
 // Insert in correct order
-// Remove at index
 // Bonus
