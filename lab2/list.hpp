@@ -11,6 +11,11 @@ public:
     List(std::initializer_list<int> values);
     ~List();
 
+    List(const List&) = delete;              // copy ctor
+    List(List&&) = delete;                   // move ctor
+    List& operator=(const List&) = delete;   // copy assignment
+    List& operator=(List&&) = delete;        // move assignment  
+
 
     bool is_empty() const;
 
