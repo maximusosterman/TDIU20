@@ -1,4 +1,4 @@
-#include "given.h"
+#include "given.hpp"
 
 int WIDTH = 19;
 int HEIGHT = 22;

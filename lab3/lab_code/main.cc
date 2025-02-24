@@ -1,4 +1,4 @@
-#include "ghost.h"
+#include "ghost.hpp"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -10,11 +10,11 @@ using namespace std;
   Ledning och Tips:
 
   - Modifiera stukturen till en header-fil och en implementationsfil
-  - Utöka 'run()' och 'draw_map()' med övrig funktionalitet.
-  - Lägg alla spöken i en lämplig behållare som en datamedlem.
+  - UtÃ¶ka 'run()' och 'draw_map()' med Ã¶vrig funktionalitet.
+  - LÃ¤gg alla spÃ¶ken i en lÃ¤mplig behÃ¥llare som en datamedlem.
   - Bryt ut stora kodblock till egna funktioner.
-  - Använd hjälpfunktioner för att undvika duplicering av kod.
-  - Tänk på att varje funktion inte borde vara längre än 25 rader.
+  - AnvÃ¤nd hjÃ¤lpfunktioner fÃ¶r att undvika duplicering av kod.
+  - TÃ¤nk pÃ¥ att varje funktion inte borde vara lÃ¤ngre Ã¤n 25 rader.
  */
 
 class Ghost_Tester
@@ -37,7 +37,7 @@ public:
             string line {};
             getline(cin, line);
             istringstream iss {line};
-        
+
             string command {};
             iss >> command;
 
@@ -56,11 +56,11 @@ public:
             }
         }
     }
-    
+
 private:
 
     /*
-      En hjälpfunktion som avgör vilka två tecken som ska ritas ut för en given position på
+      En hjÃ¤lpfunktion som avgÃ¶r vilka tvÃ¥ tecken som ska ritas ut fÃ¶r en given position pÃ¥
       spelplanen.
      */
     string to_draw(Point const& curr_pos)
@@ -74,30 +74,30 @@ private:
 
         return to_draw;
     }
-    
+
     /*
-      En hjälpfunktion för att rita ut spelplanen för testprogrammet.
-      
-      Itererar över varje rad och column i kartan. Index för raderna är flippade för att placera
-      y = 0 längst ned.
-      
-      Varje punkt i kartan ritas som två tecken eftersom ett tecken i terminalen är ca dubbelt så
-      högt som det är brett.
+      En hjÃ¤lpfunktion fÃ¶r att rita ut spelplanen fÃ¶r testprogrammet.
+
+      Itererar Ã¶ver varje rad och column i kartan. Index fÃ¶r raderna Ã¤r flippade fÃ¶r att placera
+      y = 0 lÃ¤ngst ned.
+
+      Varje punkt i kartan ritas som tvÃ¥ tecken eftersom ett tecken i terminalen Ã¤r ca dubbelt sÃ¥
+      hÃ¶gt som det Ã¤r brett.
     */
     void draw_map()
     {
         cout << "+" << setfill('-') << setw(WIDTH * 2) << "-" << "+\n";
 
-        for (int y {HEIGHT - 1}; y >= 0; --y) 
+        for (int y {HEIGHT - 1}; y >= 0; --y)
         {
             cout << "|";
-            for (int x {}; x < WIDTH; ++x) 
+            for (int x {}; x < WIDTH; ++x)
             {
                 cout << to_draw( Point{x,y} );
             }
             cout << "|\n";
         }
-    
+
         cout << "+" << setfill('-') << setw(WIDTH * 2) << "-" << "+" << endl;
     }
 
