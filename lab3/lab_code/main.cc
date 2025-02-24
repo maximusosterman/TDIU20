@@ -1,4 +1,5 @@
 #include "ghost.hpp"
+
 #include <string>
 #include <iostream>
 #include <iomanip>
