@@ -6,7 +6,7 @@
 #include <initializer_list>
 
 // Komplettering: Implementationsdetaljer syns i det publika gränssnittet.
-// HINT: Node ska vara helt privat.
+// HINT: Node ska vara helt privat. DONE
 
 class List {
 
@@ -20,22 +20,17 @@ public:
     List& operator=(const List&) = delete;   // copy assignment
     List& operator=(List&&) = delete;        // move assignment
 
-
     bool is_empty() const;
-
     void insert(int data);
     void remove(int index);
+    int index_of(int index) const;
+    int get_length() const;
 
+private:
 
     Node* get_first() const;
     Node* get_last() const;
     Node* get_node(int index) const;
-    int get_length() const;
-
-    int index_of(int index) const;
-
-private:
-
     //Sentiel
     Node* first;
     Node* last;

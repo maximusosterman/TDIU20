@@ -95,16 +95,14 @@ std::ostream& operator<<(std::ostream& os, List &list) {
     }
 
     std::string output_str {"{"};
-    Node* current_node {list.get_first()};
+    int list_length {list.get_length()};
 
-    while (current_node != nullptr) {
-        output_str += std::to_string(current_node->get_data());
+    for (int index {}; index < list_length; index++) {
+        output_str += std::to_string(list.index_of(index));
 
-        if (current_node->get_next() != nullptr) {  // Only add ", " if not the last node
-            output_str += ", ";
+        if (index + 1 != list_length) {
+            output_str += ", "; // only add if not last element of list
         }
-
-        current_node = current_node->get_next();
     }
 
     output_str += "}";
