@@ -1,8 +1,9 @@
 #ifndef LIST_HPP
 #define LIST_HPP
-#include <initializer_list>
 #include "node.hpp"
+
 #include <iostream>
+#include <initializer_list>
 
 // Komplettering: Implementationsdetaljer syns i det publika gränssnittet.
 // HINT: Node ska vara helt privat.
@@ -17,7 +18,7 @@ public:
     List(const List&) = delete;              // copy ctor
     List(List&&) = delete;                   // move ctor
     List& operator=(const List&) = delete;   // copy assignment
-    List& operator=(List&&) = delete;        // move assignment  
+    List& operator=(List&&) = delete;        // move assignment
 
 
     bool is_empty() const;

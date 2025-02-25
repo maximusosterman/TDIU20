@@ -1,14 +1,9 @@
 #include "list.hpp"
 #include "node.hpp"
-#include <initializer_list>
-#include <sstream>
-#include <string>
-#include <iostream>
-#include <stdexcept>
 
 // Komplettering: Initiera variabler med måsvingar.
 
-// Komplettering: Inkludera endast de bibliotek som används.
+// Komplettering: Inkludera endast de bibliotek som används. DONE
 
 // Komplettering: använd inte this i onödan. DONE
 
