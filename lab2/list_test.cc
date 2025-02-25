@@ -2,6 +2,8 @@
 #include "list.hpp"
 #include <sstream>
 
+// Komplettering: Ni saknar tester för Copy/Move Assignment/Constructor
+
 TEST_CASE ("Constructors") {
 
     SECTION("EMPTY LIST - INSERT, PRINT, INIT") {

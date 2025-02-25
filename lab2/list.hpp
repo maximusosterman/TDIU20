@@ -4,6 +4,9 @@
 #include "node.hpp"
 #include <iostream>
 
+// Komplettering: Implementationsdetaljer syns i det publika gränssnittet.
+// HINT: Node ska vara helt privat.
+
 class List {
 
 public:

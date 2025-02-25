@@ -6,6 +6,12 @@
 #include <iostream>
 #include <stdexcept>
 
+// Komplettering: Initiera variabler med måsvingar.
+
+// Komplettering: Inkludera endast de bibliotek som används.
+
+// Komplettering: använd inte this i onödan. DONE
+
 List::List() : first {nullptr}, last {nullptr} {};
 
 List::List(std::initializer_list<int> values) : first {nullptr}, last {nullptr} {
@@ -47,7 +53,7 @@ void List::insert(int data) {
         return;
     }
 
-    int list_length = this->get_length();
+    int list_length = get_length();
     Node* current_node;
     Node* prev_node;
     Node* new_node;
@@ -66,7 +72,7 @@ void List::insert(int data) {
 
 int List::get_length() const {
 
-    if (this->is_empty()) return 0;
+    if (is_empty()) return 0;
 
     int length {1};
     Node* node = get_first();
@@ -129,7 +135,7 @@ Node* List::get_node(int index) const {
 }
 
 int List::index_of(int index) const {
-    return this->get_node(index)->get_data();
+    return get_node(index)->get_data();
 }
 
 void List::remove(int index) {
