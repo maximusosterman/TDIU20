@@ -1,7 +1,7 @@
 #include "list.hpp"
 #include "node.hpp"
 
-// Komplettering: Initiera variabler med måsvingar.
+// Komplettering: Initiera variabler med måsvingar. DONE
 
 // Komplettering: Inkludera endast de bibliotek som används. DONE
 
@@ -17,9 +17,9 @@ List::List(std::initializer_list<int> values) : first {nullptr}, last {nullptr} 
 }
 
 List::~List() {
-    Node* current = first;
+    Node* current {first};
     while (current != nullptr) {
-        Node* next = current->get_next();
+        Node* next {current->get_next()};
         delete current;
         current = next;
     }
@@ -48,10 +48,10 @@ void List::insert(int data) {
         return;
     }
 
-    int list_length = get_length();
-    Node* current_node;
-    Node* prev_node;
-    Node* new_node;
+    int list_length {get_length()};
+    Node* current_node {};
+    Node* prev_node {};
+    Node* new_node {};
 
     for (int node {}; node < list_length; node++) {
         current_node = get_node(node); // The current node in the iteration
@@ -70,7 +70,7 @@ int List::get_length() const {
     if (is_empty()) return 0;
 
     int length {1};
-    Node* node = get_first();
+    Node* node {get_first()};
 
     while(node->get_next() != nullptr) {
         node = node->get_next();
@@ -94,8 +94,8 @@ std::ostream& operator<<(std::ostream& os, List &list) {
         return os << "{}";
     }
 
-    std::string output_str = "{";
-    Node* current_node = list.get_first();
+    std::string output_str {"{"};
+    Node* current_node {list.get_first()};
 
     while (current_node != nullptr) {
         output_str += std::to_string(current_node->get_data());
@@ -113,7 +113,7 @@ std::ostream& operator<<(std::ostream& os, List &list) {
 
 Node* List::get_node(int index) const {
 
-    Node* current_node = get_first();
+    Node* current_node {get_first()};
 
     if (!current_node || index < 0) {
         throw std::logic_error("Index out of range!");
@@ -134,7 +134,7 @@ int List::index_of(int index) const {
 }
 
 void List::remove(int index) {
-    Node* node = get_node(index);
+    Node* node {get_node(index)};
 
     if (node == get_first() && node == get_last()) {
         first = last = nullptr;
@@ -150,8 +150,8 @@ void List::remove(int index) {
         last->set_next_null();
     }
     else {
-        Node* right_node = node->get_next();
-        Node* left_node = node->get_prev();
+        Node* right_node {node->get_next()};
+        Node* left_node {node->get_prev()};
 
         left_node->set_next(right_node);
         right_node->set_prev(left_node);

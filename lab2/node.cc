@@ -1,6 +1,5 @@
 #include "node.hpp"
 
-
 // Kommentar: Bra tänkt med detta, är det dock nödvändigt?
 // Ni har bara ersatt en rad kod med ett funktions anrop istället,
 // kan ni inte göra Node som en strukt och använda er av pekarsemantiken direkt istället?
