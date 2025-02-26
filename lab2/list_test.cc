@@ -196,6 +196,8 @@ TEST_CASE ("Constructors") {
 
     }
 
-    SECTION(" COPY ")
+    SECTION(" COPY ") {
+
+    }
 
 }
