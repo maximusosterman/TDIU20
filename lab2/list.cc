@@ -80,7 +80,6 @@ int List::get_length() const {
     return length;
 }
 
-
 Node* List::get_first() const {
     return first;
 }

@@ -37,6 +37,6 @@ private:
 
 };
 
-#endif // LIST_H
-
 std::ostream& operator<<(std::ostream& os, List &list);
+
+#endif // LIST_H
