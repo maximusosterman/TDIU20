@@ -15,10 +15,10 @@ public:
     List(std::initializer_list<int> values);
     ~List();
 
-    List(const List&) = delete;              // copy ctor
+    List(const List&);              // copy ctor
     List(List&& other);                   // move ctor
-    List& operator=(const List&) = delete;   // copy assignment
-    List& operator=(List&& other) = delete;        // move assignment
+    List& operator=(const List& other);   // copy assignment
+    List& operator=(List&& other);      // move assignment
 
     bool is_empty() const;
     void insert(int data);

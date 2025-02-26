@@ -197,7 +197,65 @@ TEST_CASE ("Constructors") {
     }
 
     SECTION(" COPY ") {
+        List original_list{1, 2, 3};
+        List copied_list = original_list;  // Calls copy constructor
 
+        std::ostringstream outputStream;
+
+        outputStream << copied_list;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+        outputStream.str(""); outputStream.clear();
+
+        original_list.insert(4);
+
+        outputStream << original_list;
+        CHECK(outputStream.str() == "{1, 2, 3, 4}");
+        outputStream.str(""); outputStream.clear();
+
+        outputStream << copied_list;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+    }
+
+    SECTION(" COPY ASSIGNMENT ") {
+        List list1{1, 2, 3};
+        List list2{4, 5};
+
+        list2 = list1;
+
+        std::ostringstream outputStream;
+
+        outputStream << list2;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+        outputStream.str(""); outputStream.clear();
+
+        list1.insert(4);
+
+        outputStream << list1;
+        CHECK(outputStream.str() == "{1, 2, 3, 4}");
+        outputStream.str(""); outputStream.clear();
+
+        outputStream << list2;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+        outputStream.str(""); outputStream.clear();
+
+        outputStream << list2;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+    }
+
+    SECTION(" MOVE ASSIGNMENT ") {
+
+        List list1{1, 2, 3};
+        List list2{4, 5};
+
+        list2 = std::move(list1);  // Calls move assignment
+
+        std::ostringstream outputStream;
+
+        outputStream << list2;
+        CHECK(outputStream.str() == "{1, 2, 3}");
+        outputStream.str(""); outputStream.clear();
+
+        CHECK(list1.is_empty());
     }
 
 }

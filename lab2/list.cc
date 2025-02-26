@@ -25,10 +25,68 @@ List::~List() {
     }
 }
 
+List::List(const List& other) {
+    first = last = nullptr;  // Start with an empty list
+
+    Node* current = other.first;
+    while (current) {
+        insert(current->get_data());  // Copy each node
+        current = current->get_next();
+    }
+}
+
 List::List(List&& other)
     : first{other.first}, last{other.last} {
     other.first = nullptr;
     other.last = nullptr;
+}
+
+List& List::operator=(const List& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+
+    Node* current = first;
+    while (current) {
+        Node* next = current->get_next();
+        delete current;
+        current = next;
+    }
+
+    first = last = nullptr;
+
+    Node* other_current = other.first;
+    while (other_current) {
+        insert(other_current->get_data());  // Allocate new nodes
+        other_current = other_current->get_next();
+    }
+
+    return *this;
+}
+
+List& List::operator=(List&& other) {
+    if (this == &other) {  // Step 1: Self-assignment check
+        return *this;
+    }
+
+    // Step 2: Free existing nodes (to avoid memory leaks)
+    Node* current = first;
+    while (current) {
+        Node* next = current->get_next();
+        delete current;
+        current = next;
+    }
+
+    // Step 3: Transfer ownership from `other`
+    first = other.first;
+    last = other.last;
+
+    // Step 4: Leave `other` in a valid empty state
+    other.first = nullptr;
+    other.last = nullptr;
+
+    return *this;
 }
 
 bool List::is_empty() const {
