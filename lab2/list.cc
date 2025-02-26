@@ -25,6 +25,12 @@ List::~List() {
     }
 }
 
+List::List(List&& other)
+    : first{other.first}, last{other.last} {
+    other.first = nullptr;
+    other.last = nullptr;
+}
+
 bool List::is_empty() const {
     return first == nullptr;
 }

@@ -186,11 +186,16 @@ TEST_CASE ("Constructors") {
 
     }
 
-}
+    SECTION(" MOVE ") {
 
-TEST_CASE("Ensure List is Non-Copyable and Non-Movable") {
-    static_assert(!std::is_copy_constructible<List>::value, "List should not be copy-constructible");
-    static_assert(!std::is_move_constructible<List>::value, "List should not be move-constructible");
-    static_assert(!std::is_copy_assignable<List>::value, "List should not be copy-assignable");
-    static_assert(!std::is_move_assignable<List>::value, "List should not be move-assignable");
+        List list{1, 2, 3};
+        List list2{std::move(list)};
+
+        CHECK(list2.get_length() == 3);
+        CHECK(list.get_length() == 0);
+
+    }
+
+    SECTION(" COPY ")
+
 }

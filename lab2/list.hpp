@@ -16,9 +16,9 @@ public:
     ~List();
 
     List(const List&) = delete;              // copy ctor
-    List(List&&) = delete;                   // move ctor
+    List(List&& other);                   // move ctor
     List& operator=(const List&) = delete;   // copy assignment
-    List& operator=(List&&) = delete;        // move assignment
+    List& operator=(List&& other) = delete;        // move assignment
 
     bool is_empty() const;
     void insert(int data);
