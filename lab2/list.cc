@@ -25,7 +25,8 @@ List::~List() {
     }
 }
 
-List::List(const List& other) {
+List::List(const List& other)
+    : first{nullptr}, last{nullptr} {
     first = last = nullptr;  // Start with an empty list
 
     Node* current = other.first;
