@@ -12,9 +12,6 @@ public:
     Blinky();
     ~Blinky() {};
 
-private:
-    // virtual Point chase_point = ;
-    // virtual Point scatter_point;
 };
 
 #endif // BLINKY_H

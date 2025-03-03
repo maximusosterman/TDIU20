@@ -17,10 +17,15 @@ public:
     Point get_scatter_point() const;
     Point get_chase_point() const;
 
+    void set_position(Point const &position);
+    Point get_position() const;
+
 protected:
    std::string color;
    Point scatter_point;
    Point chase_point;
+
+   Point position;
 
 private:
 
