@@ -17,7 +17,6 @@ public:
 
 private:
     bool angry = false;
-
 };
 
 #endif // BLINKY_H

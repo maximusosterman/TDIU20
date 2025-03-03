@@ -6,7 +6,7 @@
 #define GHOST_H
 
 
-class Ghost // base class
+class Ghost : public Pacman
 {
 
 public:
@@ -19,6 +19,8 @@ public:
 
     void set_position(Point const &position);
     Point get_position() const;
+
+    using Pacman::get_position;
 
 protected:
    std::string color;
