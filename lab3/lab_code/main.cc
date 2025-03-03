@@ -1,4 +1,6 @@
 #include "ghost.hpp"
+#include "blinky.hpp"
+
 #include "given.hpp"
 
 #include <string>
@@ -48,6 +50,12 @@ public:
                 Point new_pos {};
                 iss >> new_pos.x >> new_pos.y;
                 pacman.set_position(new_pos);
+            }
+            else if (command == "red")
+            {
+                Ghost* blinky = new Blinky ();
+
+                cout << blinky->get_color();
             }
             else if (command == "dir")
             {

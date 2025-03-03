@@ -12,7 +12,8 @@
 #include <stdexcept>
 #include <iostream>
 
-
+#ifndef GIVEN_HPP
+#define GIVEN_HPP
  /*
    Globala variabler för storlek på spelplanen.
 
@@ -60,3 +61,5 @@ private:
     Point pos {};
     Point dir {};
  };
+
+ #endif // _GIVEN_
