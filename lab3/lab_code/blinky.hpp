@@ -12,6 +12,12 @@ public:
     Blinky();
     ~Blinky() {};
 
+    bool is_angry();
+    void set_angry(bool bool_in);
+
+private:
+    bool angry = false;
+
 };
 
 #endif // BLINKY_H
