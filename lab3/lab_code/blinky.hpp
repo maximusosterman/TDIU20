@@ -17,8 +17,12 @@ public:
 
     void update_chase_point(Point const& new_chase_point) override;
 
+    void update_scatter_point();
+
 private:
     bool angry = false;
+
+
 };
 
 #endif // BLINKY_H

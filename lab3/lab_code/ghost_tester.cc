@@ -12,7 +12,7 @@ void Ghost_Tester::run()
 {
     while(true)
     {
-        blinky.update_chase_point(pacman.get_position());
+
 
         draw_map();
         cout << "> ";
@@ -29,6 +29,9 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             pacman.set_position(new_pos);
+            blinky.update_chase_point(pacman.get_position());
+            //pinky.update_chase_point(pacman.get_position())
+            //clyde.update_chase_point(pacman.get_position())
 
         }
 
