@@ -20,6 +20,8 @@ public:
     void set_position(Point const &position);
     Point get_position() const;
 
+    virtual void update_chase_point(Point const& new_chase_point) = 0;
+
     using Pacman::get_position;
 
 protected:

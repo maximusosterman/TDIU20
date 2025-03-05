@@ -15,6 +15,8 @@ public:
     bool is_angry();
     void set_angry(bool bool_in);
 
+    void update_chase_point(Point const& new_chase_point) override;
+
 private:
     bool angry = false;
 };

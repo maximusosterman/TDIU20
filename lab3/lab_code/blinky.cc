@@ -4,8 +4,10 @@ Blinky::Blinky()
 {
     color = "red";
     scatter_point = {0, 6};
-    chase_point = Pacman::get_position();
+    update_chase_point({0, 0});
 }
+
+
 
 bool Blinky::is_angry()
 {
@@ -15,4 +17,9 @@ bool Blinky::is_angry()
 void Blinky::set_angry(bool bool_in)
 {
     angry = bool_in;
+}
+
+void Blinky::update_chase_point(Point const& new_chase_point)
+{
+    chase_point = new_chase_point;
 }

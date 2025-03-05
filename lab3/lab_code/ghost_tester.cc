@@ -1,11 +1,10 @@
 #include "ghost_tester.hpp"
 
-
-
 using namespace std;
 
 Ghost_Tester::Ghost_Tester()
-     : pacman {}
+     : pacman {},
+      blinky {}
 {
 }
 
@@ -13,6 +12,8 @@ void Ghost_Tester::run()
 {
     while(true)
     {
+        blinky.update_chase_point(pacman.get_position());
+
         draw_map();
         cout << "> ";
 
@@ -28,12 +29,19 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             pacman.set_position(new_pos);
+
         }
+
+        else if (command == "scatter")
+        {
+            scatter = !scatter;
+        }
+
         else if (command == "red")
         {
-            //Ghost* blinky = new Blinky ();
-
-            //cout << blinky->get_color();
+            Point new_pos {};
+            iss >> new_pos.x >> new_pos.y;
+            blinky.set_position(new_pos);
         }
         else if (command == "dir")
         {
@@ -42,6 +50,8 @@ void Ghost_Tester::run()
         {
             break;
         }
+
+
     }
 }
 
@@ -55,6 +65,12 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
 
     if (pacman.get_position() == curr_pos)
     {
+
+        if (blinky.get_chase_point() == curr_pos)
+        {
+            to_draw[0] = 'r';
+        };
+
         to_draw[1] = '@';
     }
 
