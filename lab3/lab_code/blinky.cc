@@ -4,7 +4,7 @@ Blinky::Blinky()
 {
     color = "red";
     scatter_point = {0, 6};
-    chase_point = Pacman::get_position(); //TBD
+    chase_point = Pacman::get_position();
 }
 
 bool Blinky::is_angry()
