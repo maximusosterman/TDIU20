@@ -5,6 +5,7 @@ Blinky::Blinky()
     color = "red";
     update_scatter_point();
     update_chase_point({0, 0});
+
 }
 
 

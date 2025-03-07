@@ -6,11 +6,12 @@
 #define GHOST_H
 
 
-class Ghost : public Pacman
+class Ghost
 {
 
 public:
     Ghost() {};
+    Ghost(Pacman const pacman);
     virtual ~Ghost() {};
 
     std::string get_color() const;
@@ -22,8 +23,6 @@ public:
 
     virtual void update_chase_point(Point const& new_chase_point) = 0;
 
-    using Pacman::get_position;
-
 protected:
    std::string color;
    Point scatter_point;
@@ -31,7 +30,11 @@ protected:
 
    Point position;
 
+   Pacman pacman;
+
 private:
+
+
 
    //Point get_chase_point();
    //Point get_scatter_point();
