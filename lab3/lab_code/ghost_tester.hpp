@@ -2,7 +2,9 @@
 #define __GHOST_TESTER__
 
 #include "ghost.hpp"
+
 #include "blinky.hpp"
+#include "clyde.cc"
 
 #include "given.hpp"
 
@@ -27,6 +29,7 @@ private:
 
     Pacman pacman;
     Blinky blinky;
+    Clyde  clyde;
 };
 
 #endif // __GHOST_TESTER__

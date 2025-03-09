@@ -3,8 +3,9 @@
 using namespace std;
 
 Ghost_Tester::Ghost_Tester()
-     : pacman {},
-      blinky {}
+     :  pacman {},
+        blinky {},
+        clyde {}
 {
 }
 
@@ -31,7 +32,7 @@ void Ghost_Tester::run()
             pacman.set_position(new_pos);
             blinky.update_chase_point(pacman.get_position());
             //pinky.update_chase_point(pacman.get_position())
-            //clyde.update_chase_point(pacman.get_position())
+            clyde.update_chase_point(pacman.get_position());
 
         }
 
@@ -45,6 +46,13 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             blinky.set_position(new_pos);
+        }
+
+        else if (command == "orange")
+        {
+            Point new_pos {};
+            iss >> new_pos.x >> new_pos.y;
+            clyde.set_position(new_pos);
         }
         else if (command == "dir")
         {
