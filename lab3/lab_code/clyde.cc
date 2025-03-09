@@ -1,9 +1,7 @@
 #include "clyde.hpp"
 #include "ghost.hpp"
 
-
 Clyde::Clyde()
-     : Ghost(Pacman{})
 {
     color = "orange";
     scatter_point = {0, 0};

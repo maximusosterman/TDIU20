@@ -4,7 +4,7 @@
 #include "ghost.hpp"
 
 #include "blinky.hpp"
-#include "clyde.cc"
+#include "clyde.hpp"
 
 #include "given.hpp"
 
