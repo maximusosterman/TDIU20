@@ -10,7 +10,13 @@ class Ghost
 {
 
 public:
-    Ghost() {};
+    Ghost() 
+   :  color(),
+      scatter_point(),
+      chase_point(),
+      position(),
+      pacman()
+      {};
     Ghost(Pacman const pacman);
     virtual ~Ghost() {};
 
