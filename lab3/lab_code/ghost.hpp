@@ -37,19 +37,6 @@ protected:
    Point position;
 
    Pacman& pacman;
-
-private:
-
-
-
-   //Point get_chase_point();
-   //Point get_scatter_point();
-   //void set_position(Point);
-   //void get_position();
-
-
-   // virtual Point chase_point;
-   // virtual Point scatter_point;
 };
 
 #endif //GHOST_H
