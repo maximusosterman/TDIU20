@@ -1,6 +1,7 @@
 #include "blinky.hpp"
 
-Blinky::Blinky()
+Blinky::Blinky(Pacman& pacman)
+      : Ghost(pacman)
 {
     color = "red";
     set_scatter_point();

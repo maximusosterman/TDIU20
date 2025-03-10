@@ -1,6 +1,7 @@
 #include "clyde.hpp"
 
-Clyde::Clyde()
+Clyde::Clyde(Pacman& pacman)
+      : Ghost(pacman)
 {
     color = "orange";
     set_scatter_point();
@@ -24,7 +25,7 @@ int Clyde::get_steps_from_pacman()
 void Clyde::set_chase_point()
 {
     int steps_from_pacman { get_steps_from_pacman() };
-    int n {5};
+    int n {0};
     if (steps_from_pacman > n)
     {
         chase_point = pacman.get_position();
@@ -36,6 +37,6 @@ void Clyde::set_chase_point()
 
 void Clyde::set_scatter_point()
 {
-    scatter_point = {0, 0};
+    scatter_point = {1, 1};
 
 }

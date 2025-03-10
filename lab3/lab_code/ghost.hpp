@@ -10,15 +10,8 @@ class Ghost
 {
 
 public:
-    Ghost()
-   :  color(),
-      scatter_point(),
-      chase_point(),
-      position(),
-      pacman()
-      {};
 
-    Ghost(Pacman &pacman) : 
+    Ghost(Pacman& pacman) :
       color(),
       scatter_point(),
       chase_point(),
@@ -43,7 +36,7 @@ protected:
 
    Point position;
 
-   Pacman pacman;
+   Pacman& pacman;
 
 private:
 

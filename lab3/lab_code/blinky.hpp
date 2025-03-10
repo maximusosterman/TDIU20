@@ -9,9 +9,7 @@ class Blinky : public Ghost
 
 public:
 
-    explicit Blinky(Pacman& pacman) : Ghost(pacman) {};
-
-    Blinky();
+    explicit Blinky(Pacman& pacman);
     ~Blinky() {};
 
     bool is_angry();
