@@ -23,53 +23,44 @@ void Ghost_Tester::run()
         string command {};
         iss >> command;
 
-        if (command == "pos")
-        {
-
-            std::cout << pacman.get_direction().y << " " << pacman.get_direction().x;
-            Point new_pos {};
-            iss >> new_pos.x >> new_pos.y;
-            pacman.set_position(new_pos);
-            blinky.set_chase_point();
-            pinky.set_chase_point();
-            clyde.set_chase_point();
-
-        }
-
-        else if (command == "scatter")
+        if (command == "scatter")
         {
             scatter = !scatter;
         }
 
-        else if (command == "red")
+        else if (command == pinky.get_color()
+                or command == clyde.get_color()
+                or command == blinky.get_color()
+                or command == "pos"
+                or command == "dir")
         {
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
-            blinky.set_position(new_pos);
-        }
 
-        else if (command == "orange")
-        {
-            Point new_pos {};
-            iss >> new_pos.x >> new_pos.y;
-            clyde.set_position(new_pos);
+            if (command == "dir") {
+                //pos acts as dir here, same data type
+                pacman.set_direction(new_pos);
+            }
+
+            else if (command == "pos") {
+                pacman.set_position(new_pos);
+            }
+
+            else if (command == pinky.get_color()) {
+                pinky.set_position(new_pos);
+            }
+
+            else if (command == blinky.get_color()) {
+                blinky.set_position(new_pos);
+            }
+
+            else if (command == clyde.get_color()) {
+                clyde.set_position(new_pos);
+            }
+
+            blinky.set_chase_point();
+            pinky.set_chase_point();
             clyde.set_chase_point();
-        }
-
-        else if (command == "pink")
-        {
-            Point new_pos {};
-            iss >> new_pos.x >> new_pos.y;
-            pinky.set_position(new_pos);
-            pinky.set_chase_point();
-        }
-
-        else if (command == "dir")
-        {
-            Point new_dir {};
-            iss >> new_dir.x >> new_dir.y;
-            pacman.set_direction(new_dir);
-            pinky.set_chase_point();
         }
         else if (command == "quit")
         {

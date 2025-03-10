@@ -10,6 +10,7 @@ Pinky::Pinky(Pacman& pacman)
 
 void Pinky::set_chase_point()
 {
+
     Point pacman_dir { pacman.get_direction() };
     Point pacman_pos { pacman.get_position() };
 
