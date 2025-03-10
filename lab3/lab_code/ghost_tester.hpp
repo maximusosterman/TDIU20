@@ -17,6 +17,7 @@ class Ghost_Tester
 
 public:
     Ghost_Tester();
+
     void run();
 
 private:

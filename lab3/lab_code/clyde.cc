@@ -24,7 +24,7 @@ int Clyde::get_steps_from_pacman()
 void Clyde::set_chase_point()
 {
     int steps_from_pacman { get_steps_from_pacman() };
-    int n {0};
+    int n {5};
     if (steps_from_pacman > n)
     {
         chase_point = pacman.get_position();

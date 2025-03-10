@@ -18,7 +18,12 @@ public:
       pacman()
       {};
 
-    Ghost(Pacman &pacman) : pacman {pacman} {};
+    Ghost(Pacman &pacman) : 
+      color(),
+      scatter_point(),
+      chase_point(),
+      position(),
+      pacman{pacman} {};
     virtual ~Ghost() {};
 
     std::string get_color() const;
