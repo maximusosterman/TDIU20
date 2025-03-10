@@ -15,7 +15,7 @@ public:
     bool is_angry();
     void set_angry(bool bool_in);
 
-    void update_chase_point(Point const& new_chase_point) override;
+    void set_chase_point(Point const& new_chase_point) override;
 
     void update_scatter_point();
 

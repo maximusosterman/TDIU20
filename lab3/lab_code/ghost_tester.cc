@@ -30,9 +30,9 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             pacman.set_position(new_pos);
-            blinky.update_chase_point(pacman.get_position());
+            blinky.set_chase_point(pacman.get_position());
             //pinky.update_chase_point(pacman.get_position())
-            clyde.update_chase_point(pacman.get_position());
+            clyde.set_chase_point(pacman.get_position());
 
         }
 
