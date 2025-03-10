@@ -13,8 +13,6 @@ void Ghost_Tester::run()
 {
     while(true)
     {
-
-
         draw_map();
         cout << "> ";
 
@@ -27,11 +25,13 @@ void Ghost_Tester::run()
 
         if (command == "pos")
         {
+
+            std::cout << pacman.get_direction().y << " " << pacman.get_direction().x;
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             pacman.set_position(new_pos);
             blinky.set_chase_point();
-            //pinky.update_chase_point(pacman.get_position())
+            pinky.set_chase_point();
             clyde.set_chase_point();
 
         }
@@ -55,8 +55,21 @@ void Ghost_Tester::run()
             clyde.set_position(new_pos);
             clyde.set_chase_point();
         }
+
+        else if (command == "pink")
+        {
+            Point new_pos {};
+            iss >> new_pos.x >> new_pos.y;
+            pinky.set_position(new_pos);
+            pinky.set_chase_point();
+        }
+
         else if (command == "dir")
         {
+            Point new_dir {};
+            iss >> new_dir.x >> new_dir.y;
+            pacman.set_direction(new_dir);
+            pinky.set_chase_point();
         }
         else if (command == "quit")
         {
@@ -104,6 +117,16 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     else if (clyde.get_chase_point() == curr_pos)
     {
         to_draw[0] = 'o';
+    }
+
+    else if (pinky.get_position() == curr_pos)
+    {
+        to_draw[0] = 'P';
+    }
+
+    else if (pinky.get_chase_point() == curr_pos)
+    {
+        to_draw[0] = 'p';
     }
 
     // if red

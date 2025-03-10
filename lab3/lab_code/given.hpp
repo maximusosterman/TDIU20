@@ -8,7 +8,6 @@
   även okej att utöka Point med fler operatorer om det skulle behövas.
  */
 
-
 #include <stdexcept>
 #include <iostream>
 
