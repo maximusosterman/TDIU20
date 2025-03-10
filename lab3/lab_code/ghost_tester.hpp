@@ -6,6 +6,7 @@
 
 #include "blinky.hpp"
 #include "clyde.hpp"
+#include "pinky.hpp"
 
 #include <string>
 #include <iostream>
@@ -29,6 +30,7 @@ private:
     Pacman pacman;
     Blinky blinky;
     Clyde  clyde;
+    Pinky  pinky;
 };
 
 #endif // __GHOST_TESTER__

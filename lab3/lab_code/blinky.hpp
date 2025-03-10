@@ -2,7 +2,6 @@
 #define BLINKY_H
 
 #include "ghost.hpp"
-#include <string>
 
 class Blinky : public Ghost
 {

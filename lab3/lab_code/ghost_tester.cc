@@ -5,7 +5,9 @@ using namespace std;
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
         blinky {pacman},
-        clyde {pacman} {}
+        clyde {pacman},
+        pinky {pacman}
+        {}
 
 void Ghost_Tester::run()
 {
