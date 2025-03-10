@@ -21,8 +21,6 @@ void Blinky::set_angry(bool bool_in)
 
 void Blinky::set_chase_point()
 {
-
-    std::cout << pacman.get_position().y;
     chase_point = pacman.get_position();
 }
 

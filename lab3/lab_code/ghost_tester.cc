@@ -51,6 +51,7 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             clyde.set_position(new_pos);
+            clyde.set_chase_point();
         }
         else if (command == "dir")
         {
@@ -75,10 +76,15 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     if (pacman.get_position() == curr_pos)
     {
 
-        if (blinky.get_chase_point() == curr_pos)
+        if (clyde.get_chase_point() == curr_pos)
+        {
+            to_draw[0] = 'o';
+        }
+
+        else if (blinky.get_chase_point() == curr_pos)
         {
             to_draw[0] = 'r';
-        };
+        }
 
         to_draw[1] = '@';
     }
@@ -95,7 +101,7 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
 
     else if (clyde.get_chase_point() == curr_pos)
     {
-        to_draw[1] = 'o';
+        to_draw[0] = 'o';
     }
 
     // if red
