@@ -9,15 +9,16 @@ class Blinky : public Ghost
 
 public:
 
+    explicit Blinky(Pacman& pacman) : Ghost(pacman) {};
+
     Blinky();
     ~Blinky() {};
 
     bool is_angry();
     void set_angry(bool bool_in);
 
-    void set_chase_point(Point const& new_chase_point) override;
-
-    void update_scatter_point();
+    void set_chase_point() override;
+    void set_scatter_point() override;
 
 private:
     bool angry = false;

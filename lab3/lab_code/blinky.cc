@@ -3,12 +3,10 @@
 Blinky::Blinky()
 {
     color = "red";
-    update_scatter_point();
-    set_chase_point({0, 0});
+    set_scatter_point();
+    set_chase_point();
 
 }
-
-
 
 bool Blinky::is_angry()
 {
@@ -20,12 +18,14 @@ void Blinky::set_angry(bool bool_in)
     angry = bool_in;
 }
 
-void Blinky::set_chase_point(Point const& new_chase_point)
+void Blinky::set_chase_point()
 {
-    chase_point = new_chase_point;
+
+    std::cout << pacman.get_position().y;
+    chase_point = pacman.get_position();
 }
 
-void Blinky::update_scatter_point() {
+void Blinky::set_scatter_point() {
     if (is_angry()) {
         scatter_point = chase_point;
         return;

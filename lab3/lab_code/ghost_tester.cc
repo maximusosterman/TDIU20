@@ -4,10 +4,8 @@ using namespace std;
 
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
-        blinky {},
-        clyde {}
-{
-}
+        blinky {pacman},
+        clyde {pacman} {}
 
 void Ghost_Tester::run()
 {
@@ -30,9 +28,9 @@ void Ghost_Tester::run()
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
             pacman.set_position(new_pos);
-            blinky.set_chase_point(pacman.get_position());
+            blinky.set_chase_point();
             //pinky.update_chase_point(pacman.get_position())
-            clyde.set_chase_point(pacman.get_position());
+            clyde.set_chase_point();
 
         }
 
@@ -94,7 +92,7 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     {
         to_draw[0] = 'O';
     }
-    
+
     else if (clyde.get_chase_point() == curr_pos)
     {
         to_draw[1] = 'o';

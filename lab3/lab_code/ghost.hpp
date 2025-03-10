@@ -10,14 +10,15 @@ class Ghost
 {
 
 public:
-    Ghost() 
+    Ghost()
    :  color(),
       scatter_point(),
       chase_point(),
       position(),
       pacman()
       {};
-    Ghost(Pacman const pacman);
+
+    Ghost(Pacman &pacman) : pacman {pacman} {};
     virtual ~Ghost() {};
 
     std::string get_color() const;
@@ -27,7 +28,8 @@ public:
     void set_position(Point const &position);
     Point get_position() const;
 
-    virtual void set_chase_point(Point const& new_chase_point) = 0;
+    virtual void set_chase_point() = 0;
+    virtual void set_scatter_point() = 0;
 
 protected:
    std::string color;

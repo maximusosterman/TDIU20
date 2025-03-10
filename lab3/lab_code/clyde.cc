@@ -3,8 +3,8 @@
 Clyde::Clyde()
 {
     color = "orange";
-    update_scatter_point();
-    set_chase_point({0, 0});
+    set_scatter_point();
+    set_chase_point();
 
 }
 
@@ -21,28 +21,21 @@ int Clyde::get_steps_from_pacman()
     return delta_x + delta_y;
 }
 
-void Clyde::set_chase_point(Point const& new_chase_point)
+void Clyde::set_chase_point()
 {
-    chase_point = new_chase_point;
-}
-
-Point Clyde::get_clyde_chase_point()
-{
-
     int steps_from_pacman { get_steps_from_pacman() };
     int n {0};
-    /*
     if (steps_from_pacman > n)
     {
-        return pacman.get_position();
+        chase_point = pacman.get_position();
+        return;
     }
-*/
-    return scatter_point;
 
+    chase_point = scatter_point;
 }
 
-void Clyde::update_scatter_point() 
+void Clyde::set_scatter_point()
 {
-    scatter_point = {1, 1};
+    scatter_point = {0, 0};
 
 }

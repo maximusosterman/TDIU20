@@ -1,5 +1,6 @@
 #include "ghost.hpp"
 
+
 std::string Ghost::get_color() const
 {
     return color;
