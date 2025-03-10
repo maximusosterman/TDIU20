@@ -15,8 +15,7 @@ public:
 
     ~Clyde() {};
 
-    void set_chase_point() override;
-    void set_scatter_point() override;
+    void set_chase_point(bool scatter = false) override;
 
 private:
     Point get_clyde_chase_point();

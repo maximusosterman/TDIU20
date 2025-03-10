@@ -10,8 +10,7 @@ public:
     explicit Pinky(Pacman& pacman);
     ~Pinky() {};
 
-    void set_chase_point() override;
-    void set_scatter_point() override;
+    void set_chase_point(bool scatter = false) override;
 };
 
 #endif // PINKY_H

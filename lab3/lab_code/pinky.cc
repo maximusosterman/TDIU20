@@ -4,12 +4,17 @@ Pinky::Pinky(Pacman& pacman)
       : Ghost(pacman)
 {
     color = "pink";
-    set_scatter_point();
+    scatter_point = {0, 21};
     set_chase_point();
 }
 
-void Pinky::set_chase_point()
+void Pinky::set_chase_point(bool scatter)
 {
+    if (scatter)
+    {
+        chase_point = scatter_point;
+        return;
+    }
 
     Point pacman_dir { pacman.get_direction() };
     Point pacman_pos { pacman.get_position() };
@@ -30,9 +35,4 @@ void Pinky::set_chase_point()
             };
 
     }
-}
-
-void Pinky::set_scatter_point()
-{
-    scatter_point = {0, 21};
 }

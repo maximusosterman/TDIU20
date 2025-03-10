@@ -19,8 +19,14 @@ void Blinky::set_angry(bool bool_in)
     angry = bool_in;
 }
 
-void Blinky::set_chase_point()
+void Blinky::set_chase_point(bool scatter)
 {
+    if (scatter)
+    {
+        chase_point = scatter_point;
+        return;
+    }
+
     chase_point = pacman.get_position();
 }
 

@@ -4,7 +4,7 @@ Clyde::Clyde(Pacman& pacman)
       : Ghost(pacman)
 {
     color = "orange";
-    set_scatter_point();
+    scatter_point = {0, 0};
     set_chase_point();
 
 }
@@ -22,21 +22,16 @@ int Clyde::get_steps_from_pacman()
     return delta_x + delta_y;
 }
 
-void Clyde::set_chase_point()
+void Clyde::set_chase_point(bool scatter)
 {
+
     int steps_from_pacman { get_steps_from_pacman() };
     int n {5};
-    if (steps_from_pacman > n)
+    if (steps_from_pacman > n && !scatter)
     {
         chase_point = pacman.get_position();
         return;
     }
 
     chase_point = scatter_point;
-}
-
-void Clyde::set_scatter_point()
-{
-    scatter_point = {0, 0};
-
 }

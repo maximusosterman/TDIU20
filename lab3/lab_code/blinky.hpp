@@ -14,11 +14,11 @@ public:
     bool is_angry();
     void set_angry(bool bool_in);
 
-    void set_chase_point() override;
-    void set_scatter_point() override;
+    void set_chase_point(bool scatter = false) override;
 
 private:
     bool angry = false;
+    void set_scatter_point();
 
 
 };

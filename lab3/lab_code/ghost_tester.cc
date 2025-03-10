@@ -28,11 +28,18 @@ void Ghost_Tester::run()
             scatter = !scatter;
         }
 
-        else if (command == pinky.get_color()
+        else if (command == "anger")
+        {
+            blinky.set_angry(!blinky.is_angry());
+        }
+
+        if (
+                command == pinky.get_color()
                 or command == clyde.get_color()
                 or command == blinky.get_color()
                 or command == "pos"
-                or command == "dir")
+                or command == "dir"
+                )
         {
             Point new_pos {};
             iss >> new_pos.x >> new_pos.y;
@@ -57,16 +64,16 @@ void Ghost_Tester::run()
             else if (command == clyde.get_color()) {
                 clyde.set_position(new_pos);
             }
-
-            blinky.set_chase_point();
-            pinky.set_chase_point();
-            clyde.set_chase_point();
         }
+
         else if (command == "quit")
         {
             break;
         }
 
+        blinky.set_chase_point(scatter);
+        pinky.set_chase_point(scatter);
+        clyde.set_chase_point(scatter);
 
     }
 }
@@ -84,12 +91,13 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
 
         if (clyde.get_chase_point() == curr_pos)
         {
-            to_draw[0] = 'o';
+            to_draw[0] = std::tolower(clyde.get_color().at(0));
         }
 
         else if (blinky.get_chase_point() == curr_pos)
         {
-            to_draw[0] = 'r';
+            to_draw[0] = std::tolower(blinky.get_color().at(0));
+
         }
 
         to_draw[1] = '@';
@@ -97,30 +105,38 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
 
     else if (blinky.get_position() == curr_pos)
     {
-        to_draw[1] = 'R';
+        to_draw[0] = std::toupper(blinky.get_color().at(0));
+
     }
 
     else if (clyde.get_position() == curr_pos)
     {
-        to_draw[0] = 'O';
+        to_draw[0] = std::toupper(clyde.get_color().at(0));
+
     }
 
     else if (clyde.get_chase_point() == curr_pos)
     {
-        to_draw[0] = 'o';
+        to_draw[0] = std::tolower(clyde.get_color().at(0));
+
     }
 
     else if (pinky.get_position() == curr_pos)
     {
-        to_draw[0] = 'P';
+        to_draw[0] = std::toupper(pinky.get_color().at(0));
+
     }
 
     else if (pinky.get_chase_point() == curr_pos)
     {
-        to_draw[0] = 'p';
+        to_draw[0] = std::tolower(pinky.get_color().at(0));
     }
 
-    // if red
+    else if (blinky.get_chase_point() == curr_pos)
+    {
+        to_draw[0] = std::tolower(blinky.get_color().at(0));
+    }
+
 
     return to_draw;
 }

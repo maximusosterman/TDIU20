@@ -26,8 +26,8 @@ public:
     void set_position(Point const &position);
     Point get_position() const;
 
-    virtual void set_chase_point() = 0;
-    virtual void set_scatter_point() = 0;
+    virtual void set_chase_point(bool scatter) = 0;
+
 
 protected:
    std::string color;
