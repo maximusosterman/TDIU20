@@ -2,11 +2,10 @@
 #define __GHOST_TESTER__
 
 #include "ghost.hpp"
+#include "given.hpp"
 
 #include "blinky.hpp"
 #include "clyde.hpp"
-
-#include "given.hpp"
 
 #include <string>
 #include <iostream>
@@ -21,7 +20,6 @@ public:
     void run();
 
 private:
-
     std::string to_draw(Point const& curr_pos);
     void draw_map();
 

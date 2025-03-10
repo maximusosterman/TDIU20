@@ -1,11 +1,10 @@
 #include "clyde.hpp"
-#include "ghost.hpp"
 
 Clyde::Clyde()
 {
     color = "orange";
     scatter_point = {0, 0};
-    update_chase_point(get_clyde_chase_point());
+    set_chase_point(get_clyde_chase_point());
 
 }
 
@@ -22,11 +21,10 @@ int Clyde::get_steps_from_pacman()
     return delta_x + delta_y;
 }
 
-void Clyde::update_chase_point(Point const& new_chase_point)
+void Clyde::set_chase_point(Point const& new_chase_point)
 {
     chase_point = new_chase_point;
 }
-
 
 Point Clyde::get_clyde_chase_point()
 {

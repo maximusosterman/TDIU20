@@ -14,7 +14,7 @@ public:
     Clyde();
     ~Clyde() {};
 
-    void update_chase_point(Point const& new_chase_point) override;
+    void set_chase_point(Point const& new_chase_point) override;
 
 private:
     Point get_clyde_chase_point();
