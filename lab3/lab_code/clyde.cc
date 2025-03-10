@@ -3,8 +3,8 @@
 Clyde::Clyde()
 {
     color = "orange";
-    scatter_point = {0, 0};
-    set_chase_point(get_clyde_chase_point());
+    update_scatter_point();
+    set_chase_point({0, 0});
 
 }
 
@@ -30,13 +30,19 @@ Point Clyde::get_clyde_chase_point()
 {
 
     int steps_from_pacman { get_steps_from_pacman() };
-    int n {3};
-
+    int n {0};
+    /*
     if (steps_from_pacman > n)
     {
         return pacman.get_position();
     }
-
+*/
     return scatter_point;
+
+}
+
+void Clyde::update_scatter_point() 
+{
+    scatter_point = {1, 1};
 
 }

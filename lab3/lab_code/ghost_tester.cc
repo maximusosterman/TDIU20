@@ -94,10 +94,10 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     {
         to_draw[0] = 'O';
     }
-
+    
     else if (clyde.get_chase_point() == curr_pos)
     {
-        to_draw[0] = 'o';
+        to_draw[1] = 'o';
     }
 
     // if red
