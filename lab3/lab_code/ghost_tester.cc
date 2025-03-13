@@ -38,7 +38,17 @@ void Ghost_Tester::run()
 
         else if (command == "scatter")
         {
-            scatter = !scatter;
+            if (!scatter)
+            {
+                scatter = true;
+            }
+        }
+
+        else if (command == "chase")
+        {
+            if (scatter) {
+                scatter = false;
+            }
         }
 
         else if (command == "anger")
