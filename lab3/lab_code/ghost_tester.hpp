@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <vector>
 
 class Ghost_Tester
 {
@@ -28,9 +29,11 @@ private:
     bool scatter = false;
 
     Pacman pacman;
-    Blinky blinky;
-    Clyde  clyde;
-    Pinky  pinky;
+    Blinky* blinky;
+    Clyde*  clyde;
+    Pinky*  pinky;
+
+    std::vector<Ghost*> ghosts;
 };
 
 #endif // __GHOST_TESTER__

@@ -12,10 +12,10 @@ class Ghost
 public:
 
     Ghost(Pacman& pacman) :
-      color(),
-      scatter_point(),
-      chase_point(),
-      position(),
+      color{},
+      scatter_point{},
+      chase_point{},
+      position{},
       pacman{pacman} {};
     virtual ~Ghost() {};
 

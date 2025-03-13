@@ -4,10 +4,18 @@ using namespace std;
 
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
-        blinky {pacman},
-        clyde {pacman},
-        pinky {pacman}
-        {}
+        ghosts {}
+        {
+            blinky = new Blinky{pacman};
+            clyde = new Clyde{pacman};
+            pinky = new Pinky{pacman};
+
+            ghosts = {
+                blinky,
+                clyde,
+                pinky
+            };
+        }
 
 void Ghost_Tester::run()
 {
@@ -23,20 +31,25 @@ void Ghost_Tester::run()
         string command {};
         iss >> command;
 
-        if (command == "scatter")
+        if (command == "quit")
+        {
+            break;
+        }
+
+        else if (command == "scatter")
         {
             scatter = !scatter;
         }
 
         else if (command == "anger")
         {
-            blinky.set_angry(!blinky.is_angry());
+            blinky->set_angry(!blinky->is_angry());
         }
 
         if (
-                command == pinky.get_color()
-                or command == clyde.get_color()
-                or command == blinky.get_color()
+                command == pinky->get_color()
+                or command == clyde->get_color()
+                or command == blinky->get_color()
                 or command == "pos"
                 or command == "dir"
                 )
@@ -53,27 +66,20 @@ void Ghost_Tester::run()
                 pacman.set_position(new_pos);
             }
 
-            else if (command == pinky.get_color()) {
-                pinky.set_position(new_pos);
-            }
-
-            else if (command == blinky.get_color()) {
-                blinky.set_position(new_pos);
-            }
-
-            else if (command == clyde.get_color()) {
-                clyde.set_position(new_pos);
+            for (Ghost* ghost : ghosts)
+            {
+                if (command == ghost->get_color())
+                {
+                    ghost->set_position(new_pos);
+                    break;
+                }
             }
         }
 
-        else if (command == "quit")
+        for (Ghost* ghost: ghosts)
         {
-            break;
+            ghost->set_chase_point(scatter);
         }
-
-        blinky.set_chase_point(scatter);
-        pinky.set_chase_point(scatter);
-        clyde.set_chase_point(scatter);
 
     }
 }
@@ -89,54 +95,33 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     if (pacman.get_position() == curr_pos)
     {
 
-        if (clyde.get_chase_point() == curr_pos)
+        if (clyde->get_chase_point() == curr_pos)
         {
-            to_draw[0] = std::tolower(clyde.get_color().at(0));
+            to_draw[0] = std::tolower(clyde->get_color().at(0));
         }
 
-        else if (blinky.get_chase_point() == curr_pos)
+        else if (blinky->get_chase_point() == curr_pos)
         {
-            to_draw[0] = std::tolower(blinky.get_color().at(0));
+            to_draw[0] = std::tolower(blinky->get_color().at(0));
 
         }
 
         to_draw[1] = '@';
     }
 
-    else if (blinky.get_position() == curr_pos)
+    for (Ghost* ghost : ghosts)
     {
-        to_draw[0] = std::toupper(blinky.get_color().at(0));
+        if (ghost->get_position() == curr_pos)
+        {
+            to_draw[0] = std::toupper(ghost->get_color().at(0));
+        }
 
+        else if (ghost->get_chase_point() == curr_pos)
+        {
+            to_draw[0] = std::tolower(ghost->get_color().at(0));
+
+        }
     }
-
-    else if (clyde.get_position() == curr_pos)
-    {
-        to_draw[0] = std::toupper(clyde.get_color().at(0));
-
-    }
-
-    else if (clyde.get_chase_point() == curr_pos)
-    {
-        to_draw[0] = std::tolower(clyde.get_color().at(0));
-
-    }
-
-    else if (pinky.get_position() == curr_pos)
-    {
-        to_draw[0] = std::toupper(pinky.get_color().at(0));
-
-    }
-
-    else if (pinky.get_chase_point() == curr_pos)
-    {
-        to_draw[0] = std::tolower(pinky.get_color().at(0));
-    }
-
-    else if (blinky.get_chase_point() == curr_pos)
-    {
-        to_draw[0] = std::tolower(blinky.get_color().at(0));
-    }
-
 
     return to_draw;
 }
