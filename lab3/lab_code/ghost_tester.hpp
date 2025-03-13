@@ -22,6 +22,9 @@ public:
 
     void run();
 
+    Ghost_Tester(const Ghost_Tester&) = delete;
+    Ghost_Tester& operator=(const Ghost_Tester&) = delete;
+
 private:
     std::string to_draw(Point const& curr_pos);
     void draw_map();

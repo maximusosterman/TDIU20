@@ -4,18 +4,12 @@ using namespace std;
 
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
-        ghosts {}
-        {
-            blinky = new Blinky{pacman};
-            clyde = new Clyde{pacman};
-            pinky = new Pinky{pacman};
+        blinky{new Blinky{pacman}},
+        clyde{new Clyde{pacman}},
+        pinky{new Pinky{pacman}},
+        ghosts {blinky, clyde, pinky} 
+        {}
 
-            ghosts = {
-                blinky,
-                clyde,
-                pinky
-            };
-        }
 
 void Ghost_Tester::run()
 {
@@ -26,7 +20,7 @@ void Ghost_Tester::run()
 
         string line {};
         getline(cin, line);
-        istringstream iss {line};
+        istringstream iss {line}; 
 
         string command {};
         iss >> command;
