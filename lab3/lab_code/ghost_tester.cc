@@ -57,9 +57,7 @@ void Ghost_Tester::run()
         }
 
         if (
-                command == pinky->get_color()
-                or command == clyde->get_color()
-                or command == blinky->get_color()
+                command_is_ghost_color(command)
                 or command == "pos"
                 or command == "dir"
                 )
@@ -134,6 +132,19 @@ string Ghost_Tester::to_draw(Point const& curr_pos)
     }
 
     return to_draw;
+}
+
+bool Ghost_Tester::command_is_ghost_color(std::string const &command)
+{
+    for (Ghost* ghost : ghosts)
+    {
+        if (command == ghost->get_color())
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /*

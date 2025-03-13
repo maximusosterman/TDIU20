@@ -25,6 +25,8 @@ public:
 private:
     std::string to_draw(Point const& curr_pos);
     void draw_map();
+    bool command_is_ghost_color(std::string const &command);
+
 
     bool scatter = false;
 
