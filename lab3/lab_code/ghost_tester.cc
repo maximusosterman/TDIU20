@@ -8,7 +8,13 @@ Ghost_Tester::Ghost_Tester()
         clyde{new Clyde{pacman}},
         pinky{new Pinky{pacman}},
         ghosts {blinky, clyde, pinky} 
-        {}
+
+        {
+            blinky->set_position({0, HEIGHT - 1});  // Överst till vänster
+            clyde->set_position({WIDTH - 1, HEIGHT - 1});  // Överst till höger
+            pinky->set_position({WIDTH  -1, 0});  // Högra bottenhörnet
+        }
+
 
 
 void Ghost_Tester::run()

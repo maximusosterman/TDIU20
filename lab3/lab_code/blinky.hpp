@@ -8,8 +8,7 @@ class Blinky : public Ghost
 
 public:
 
-    explicit Blinky(Pacman& pacman);
-    ~Blinky() {};
+    Blinky(Pacman& pacman);
 
     bool is_angry();
     void set_angry(bool bool_in);

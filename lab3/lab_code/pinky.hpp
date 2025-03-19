@@ -7,8 +7,7 @@ class Pinky : public Ghost
 {
 
 public:
-    explicit Pinky(Pacman& pacman);
-    ~Pinky() {};
+    Pinky(Pacman& pacman);
 
     void set_chase_point(bool scatter = false) override;
 };

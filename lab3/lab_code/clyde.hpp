@@ -11,9 +11,7 @@ class Clyde : public Ghost
 
 public:
 
-    explicit Clyde(Pacman& pacman);
-
-    ~Clyde() {};
+    Clyde(Pacman& pacman);
 
     void set_chase_point(bool scatter = false) override;
 
