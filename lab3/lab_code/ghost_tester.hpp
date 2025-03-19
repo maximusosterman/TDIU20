@@ -14,6 +14,14 @@
 #include <sstream>
 #include <vector>
 
+// Komplettering: Testprogrammet ska vara generellt och hantera ett
+//    godtyckligt antal spöken. I och med att ni byggt ert program
+//    med förutsättningen att alla spöken måste lagras som en variabel
+//    funkar inte detta. Era spöken ska endast lagras i vektorn.
+
+// Kommentar: Intressant att ni inkluderat kopieringskonstruktor
+//    och kopieringsflyttoperator i test-klassen. Hur kommer det sig?
+
 class Ghost_Tester
 {
 

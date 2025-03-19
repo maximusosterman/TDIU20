@@ -2,6 +2,14 @@
 
 using namespace std;
 
+// Komplettering: För att hitta Blinky i listan av spöken ska dynamic_cast användas.
+// Komplettering: I testprogrammet verkar Blinky fortfarande springa till sin scatter
+//    point även när angry är true.
+// Komplettering: Koden kör med minnesläckor.
+
+// Kommentar: Sätt gärna olika startpositioner på alla spöken så att de inte börjar
+//    på samma punkt allihopa.
+
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
         blinky{new Blinky{pacman}},
