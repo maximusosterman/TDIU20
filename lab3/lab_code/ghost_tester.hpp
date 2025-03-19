@@ -19,6 +19,7 @@ class Ghost_Tester
 
 public:
     Ghost_Tester();
+    ~Ghost_Tester();
 
     void run();
 

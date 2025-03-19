@@ -15,6 +15,15 @@ Ghost_Tester::Ghost_Tester()
             pinky->set_position({WIDTH  -1, 0});  // Högra bottenhörnet
         }
 
+Ghost_Tester::~Ghost_Tester(){
+    for (Ghost* ghost : ghosts) 
+    {
+        delete ghost;
+    }
+    
+    ghosts.clear();
+}
+        
 
 
 void Ghost_Tester::run()
@@ -53,7 +62,14 @@ void Ghost_Tester::run()
 
         else if (command == "anger")
         {
-            blinky->set_angry(!blinky->is_angry());
+            for (Ghost* ghost : ghosts)
+            {
+                Blinky* blinky = dynamic_cast<Blinky*>(ghost);
+                if (blinky) {
+                    blinky->set_angry(!blinky->is_angry());
+                    break;
+                }
+            }
         }
 
         if (

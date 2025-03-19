@@ -21,6 +21,12 @@ void Blinky::set_angry(bool bool_in)
 
 void Blinky::set_chase_point(bool scatter)
 {
+
+    if (is_angry()) {
+        chase_point = pacman.get_position();
+        return;
+    }
+
     if (scatter)
     {
         chase_point = scatter_point;
@@ -31,10 +37,5 @@ void Blinky::set_chase_point(bool scatter)
 }
 
 void Blinky::set_scatter_point() {
-    if (is_angry()) {
-        scatter_point = chase_point;
-        return;
-    }
-
-    scatter_point = {18, 21};
+    scatter_point = {WIDTH-1, HEIGHT-1};
 }

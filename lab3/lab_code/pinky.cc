@@ -4,7 +4,7 @@ Pinky::Pinky(Pacman& pacman)
       : Ghost(pacman)
 {
     color = "pink";
-    scatter_point = {0, 21};
+    scatter_point = {0, HEIGHT-1};
     set_chase_point();
 }
 

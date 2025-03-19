@@ -12,7 +12,6 @@ class Clyde : public Ghost
 public:
 
     Clyde(Pacman& pacman);
-
     void set_chase_point(bool scatter = false) override;
 
 private:
