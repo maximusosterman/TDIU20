@@ -4,8 +4,8 @@ Blinky::Blinky(Pacman& pacman)
       : Ghost(pacman)
 {
     color = "red";
-    set_scatter_point();
-    set_chase_point();
+    scatter_point = {WIDTH-1, HEIGHT-1};
+    get_chase_point();
 
 }
 
@@ -19,23 +19,12 @@ void Blinky::set_angry(bool bool_in)
     angry = bool_in;
 }
 
-void Blinky::set_chase_point(bool scatter)
+Point Blinky::get_chase_point(bool scatter)
 {
-
-    if (is_angry()) {
-        chase_point = pacman.get_position();
-        return;
-    }
-
-    if (scatter)
+    if (is_angry() or !scatter)
     {
-        chase_point = scatter_point;
-        return;
+        return pacman.get_position();
     }
 
-    chase_point = pacman.get_position();
-}
-
-void Blinky::set_scatter_point() {
-    scatter_point = {WIDTH-1, HEIGHT-1};
+    return scatter_point;
 }

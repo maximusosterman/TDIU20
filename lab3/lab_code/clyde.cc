@@ -5,13 +5,12 @@ Clyde::Clyde(Pacman& pacman)
 {
     color = "orange";
     scatter_point = {0, 0};
-    set_chase_point();
+    get_chase_point();
 
 }
 
 int Clyde::get_steps_from_pacman()
 {
-
     // Number of steps is calculated by | pacman pos - clyde pos | for both x znd y.
     Point pacman_pos { pacman.get_position() };
     Point clyde_pos {get_position()};
@@ -22,15 +21,13 @@ int Clyde::get_steps_from_pacman()
     return sqrt((delta_x*delta_x) + (delta_y*delta_y));
 }
 
-void Clyde::set_chase_point(bool scatter)
+Point Clyde::get_chase_point(bool scatter)
 {
     int steps_from_pacman { get_steps_from_pacman() };
-    int n {5};
     if (steps_from_pacman > n && !scatter)
     {
-        chase_point = pacman.get_position();
-        return;
+        return pacman.get_position();
     }
 
-    chase_point = scatter_point;
+    return scatter_point;
 }

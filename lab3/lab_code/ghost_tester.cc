@@ -15,7 +15,7 @@ Ghost_Tester::Ghost_Tester()
         blinky{new Blinky{pacman}},
         clyde{new Clyde{pacman}},
         pinky{new Pinky{pacman}},
-        ghosts {blinky, clyde, pinky} 
+        ghosts {blinky, clyde, pinky}
 
         {
             blinky->set_position({0, HEIGHT - 1});  // Överst till vänster
@@ -24,15 +24,13 @@ Ghost_Tester::Ghost_Tester()
         }
 
 Ghost_Tester::~Ghost_Tester(){
-    for (Ghost* ghost : ghosts) 
+    for (Ghost* ghost : ghosts)
     {
         delete ghost;
     }
-    
+
     ghosts.clear();
 }
-        
-
 
 void Ghost_Tester::run()
 {
@@ -43,7 +41,7 @@ void Ghost_Tester::run()
 
         string line {};
         getline(cin, line);
-        istringstream iss {line}; 
+        istringstream iss {line};
 
         string command {};
         iss >> command;
@@ -110,7 +108,7 @@ void Ghost_Tester::run()
 
         for (Ghost* ghost: ghosts)
         {
-            ghost->set_chase_point(scatter);
+            ghost->chase_point = ghost->get_chase_point(scatter);
         }
 
     }

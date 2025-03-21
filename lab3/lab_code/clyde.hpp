@@ -12,12 +12,13 @@ class Clyde : public Ghost
 public:
 
     Clyde(Pacman& pacman);
-    void set_chase_point(bool scatter = false) override;
+    Point get_chase_point(bool scatter = false) override;
 
 private:
     Point get_clyde_chase_point();
     int get_steps_from_pacman();
 
+    int n {5};
 
 
 };

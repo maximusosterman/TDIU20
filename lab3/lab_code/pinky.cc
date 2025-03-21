@@ -5,15 +5,14 @@ Pinky::Pinky(Pacman& pacman)
 {
     color = "pink";
     scatter_point = {0, HEIGHT-1};
-    set_chase_point();
+    get_chase_point();
 }
 
-void Pinky::set_chase_point(bool scatter)
+Point Pinky::get_chase_point(bool scatter)
 {
     if (scatter)
     {
-        chase_point = scatter_point;
-        return;
+        return scatter_point;
     }
 
     Point pacman_dir { pacman.get_direction() };
@@ -21,9 +20,9 @@ void Pinky::set_chase_point(bool scatter)
 
     if (pacman_dir.x != 0) // Pacman goes in x-axis
     {
-        chase_point = {pacman_pos.x + pacman_dir.x*2, pacman_pos.y};
+        return {pacman_pos.x + pacman_dir.x*2, pacman_pos.y};
     } else // its y-axis
     {
-        chase_point = {pacman_pos.x, pacman_pos.y + pacman_dir.y*2};
+        return {pacman_pos.x, pacman_pos.y + pacman_dir.y*2};
     }
 }

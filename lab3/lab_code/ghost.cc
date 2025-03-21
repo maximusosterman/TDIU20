@@ -16,7 +16,7 @@
 // Komplettering: set_position behöver kontrollera att den inskickade
 //    positionen är inom spelplanen och informera anropande kod. DONE
 // Komplettering: Avståndet för Clyde ska beräknas som fågelvägen. DONE
-// Komplettering: Clydes n-värde ska inte vara hårdkodat i get_chase_point.
+// Komplettering: Clydes n-värde ska inte vara hårdkodat i get_chase_point. DONE
 
 std::string Ghost::get_color() const
 {
@@ -26,11 +26,6 @@ std::string Ghost::get_color() const
 Point Ghost::get_scatter_point() const
 {
     return scatter_point;
-};
-
-Point Ghost::get_chase_point() const
-{
-    return chase_point;
 };
 
 void Ghost::set_position(Point const &pos_in)
