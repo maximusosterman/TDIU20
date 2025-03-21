@@ -1,4 +1,4 @@
-w#include "blinky.hpp"
+#include "blinky.hpp"
 
 Blinky::Blinky(Pacman& pacman)
       : Ghost(pacman)
