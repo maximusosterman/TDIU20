@@ -7,7 +7,7 @@ class Pinky : public Ghost
 {
 
 public:
-    Pinky(Pacman& pacman);
+    using Ghost::Ghost;
 
     Point get_chase_point(bool scatter = false) override;
 };

@@ -1,13 +1,5 @@
 #include "pinky.hpp"
 
-Pinky::Pinky(Pacman& pacman)
-      : Ghost(pacman)
-{
-    color = "pink";
-    scatter_point = {0, HEIGHT-1};
-    get_chase_point();
-}
-
 Point Pinky::get_chase_point(bool scatter)
 {
     if (scatter)

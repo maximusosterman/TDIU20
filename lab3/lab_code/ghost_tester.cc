@@ -12,16 +12,11 @@ using namespace std;
 
 Ghost_Tester::Ghost_Tester()
      :  pacman {},
-        blinky{new Blinky{pacman}},
-        clyde{new Clyde{pacman}},
-        pinky{new Pinky{pacman}},
+        blinky{new Blinky{pacman, "red", {WIDTH-1, HEIGHT-1}, {0, HEIGHT - 1}}},
+        clyde{new Clyde{pacman, "orange", {0, 0}, {WIDTH - 1, HEIGHT - 1}}},
+        pinky{new Pinky{pacman, "pink", {0, HEIGHT-1}, {WIDTH  -1, 0}}},
         ghosts {blinky, clyde, pinky}
-
-        {
-            blinky->set_position({0, HEIGHT - 1});  // Överst till vänster
-            clyde->set_position({WIDTH - 1, HEIGHT - 1});  // Överst till höger
-            pinky->set_position({WIDTH  -1, 0});  // Högra bottenhörnet
-        }
+        {}
 
 Ghost_Tester::~Ghost_Tester(){
     for (Ghost* ghost : ghosts)
@@ -106,10 +101,10 @@ void Ghost_Tester::run()
             }
         }
 
-        for (Ghost* ghost: ghosts)
-        {
-            ghost->chase_point = ghost->get_chase_point(scatter);
-        }
+        // for (Ghost* ghost: ghosts)
+        // {
+        //     //ghost->chase_point = ghost->get_chase_point(scatter);
+        // }
 
     }
 }

@@ -22,11 +22,11 @@ class Ghost
 
 public:
 
-    Ghost(Pacman& pacman) :
-      color{},
-      scatter_point{},
+    Ghost(Pacman& pacman, std::string const& color, Point const& scatter_point, Point const& position) :
+      color{color},
+      scatter_point{scatter_point},
       chase_point{},
-      position{},
+      position{position},
       pacman{pacman} {};
     virtual ~Ghost() {};
 

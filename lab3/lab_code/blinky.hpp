@@ -8,7 +8,7 @@ class Blinky : public Ghost
 
 public:
 
-    Blinky(Pacman& pacman);
+    using Ghost::Ghost;
 
     bool is_angry();
     void set_angry(bool bool_in);

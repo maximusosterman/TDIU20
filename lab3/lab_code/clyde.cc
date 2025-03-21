@@ -1,14 +1,5 @@
 #include "clyde.hpp"
 
-Clyde::Clyde(Pacman& pacman)
-      : Ghost(pacman)
-{
-    color = "orange";
-    scatter_point = {0, 0};
-    get_chase_point();
-
-}
-
 int Clyde::get_steps_from_pacman()
 {
     // Number of steps is calculated by | pacman pos - clyde pos | for both x znd y.

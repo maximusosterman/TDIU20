@@ -11,7 +11,7 @@ class Clyde : public Ghost
 
 public:
 
-    Clyde(Pacman& pacman);
+    using Ghost::Ghost;
     Point get_chase_point(bool scatter = false) override;
 
 private:

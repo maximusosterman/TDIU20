@@ -6,7 +6,7 @@
 // Komplettering: Initiera era variabler med datamedlemsinitieringslistan,
 //    se t.ex Blinky där färgen sätts i konstruktorns kropp, och hur
 //    scatter_point även sätts i konstruktorns kropp.
-// Komplettering: Ni hanterar chase- och scatter-points lite ineffektivt.
+// Komplettering: Ni hanterar chase- och scatter-points lite ineffektivt. DONE
 //    Tanken är inte att de värden som lagras i era spöken ska uppdateras
 //    av ert testprogram eller körfilen. Hanteringen som ni gör i era
 //    set_chase_point och set_scatter_point bör istället hanteras i
