@@ -24,7 +24,6 @@ int Clyde::get_steps_from_pacman()
 
 void Clyde::set_chase_point(bool scatter)
 {
-
     int steps_from_pacman { get_steps_from_pacman() };
     int n {5};
     if (steps_from_pacman > n && !scatter)
